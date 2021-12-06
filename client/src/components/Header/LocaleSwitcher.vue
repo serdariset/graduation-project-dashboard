@@ -1,35 +1,31 @@
 <template>
   <div class="info-item header-language-switcher">
-    <span class="language-icon">
-      <img src="@/assets/English.svg" alt="" />
-    </span>
-
-    <span class="language-name">English</span>
-    <i class="fas fa-caret-down"></i>
-    <div class="language-dropdown">
-      <div class="language" v-for="locale in locales" :key="locale">
-        <span class="language-icon">
-          <img :src="require(`@/assets/${locale}.svg`)" alt="" />
-        </span>
-        <span class="language-name">{{ locale }}</span>
-      </div>
-    </div>
+    <select
+      name="lang"
+      id="language"
+      v-model="setLanguage"
+      @change="switchLocale(setLanguage)"
+    >
+      <option value="Türkçe">Türkçe</option>
+      <option value="English">English</option>
+    </select>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      locales: process.env.VUE_APP_I18N_SUPPORTED_LOCALE.split(","),
+      setLanguage: "English",
     };
   },
-  /* methods: {
+  methods: {
     switchLocale(locale) {
       if (this.$i18n.locale !== locale) {
         this.$i18n.locale = locale;
       }
+      console.log(locale);
     },
-  }, */
+  },
 };
 </script>
 

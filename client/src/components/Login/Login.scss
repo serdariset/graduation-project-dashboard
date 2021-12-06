@@ -1,0 +1,132 @@
+@import "@/assets/scss/colors.scss";
+@import "@/assets/scss/mixins.scss";
+@import "@/assets/scss/responsive.scss";
+
+#login-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: $bground;
+
+    .user-login-group{
+        height: 600px;
+        width: 500px;
+        background-color: $white;
+        margin-top: 5rem;
+        box-shadow: 0 0 10px 1px rgba($color: $black, $alpha: 0.1);
+        border-radius: 10px;
+        padding: 2rem 1rem;
+        @include column;
+        justify-content: space-between;
+
+        .login-header{
+            @include center;
+            .logo{
+                display: flex;
+                img{
+                    max-width: 105px;
+                }
+            }
+            .text-content{
+                @include column;
+                margin-left: 1rem;
+                .brand{
+                    font-size: 45px;
+                    color: $primary;
+                    font-weight: 700;
+                    height: 55px;
+                }
+                .name{
+                    color: $primary;
+                    font-size: 20px;
+                    height: 20px;
+                    margin-left: 2px;
+                }
+            }
+        }
+        .login-form{
+            @include column;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 3rem;
+            .input-group{
+                width: 75%;
+                position: relative;
+
+
+                input[type="text"],input[type="password"]{
+                    width: 85%;
+                    height: 45px;
+                    outline: none;
+                    border: 2px solid $border;
+                    border-radius: 10px;
+                    padding-left: 1rem;
+                    color: $secondary;
+                    font-size: 16px;
+                    &:focus{
+                        border-color: $primary;
+                    }
+                }
+                input[type="checkbox"]{
+                    width: 15px;
+                    height: 15px;
+                    border: 1px solid $border;
+                }
+                i{
+                    position: absolute;
+                    right: 45px;
+                    color: $secondary;
+                    cursor: pointer;
+                }
+                &:not(:last-child){
+                    margin-bottom: 1.5rem;
+                    @include center;
+                }
+                &:last-child{
+                    margin-left: 3.5rem;
+                    display: flex;
+                    align-items: center;
+                }
+                label{
+                    margin-left: 0.5rem;
+                    color: $secondary;
+                    font-size: 16px;
+                }
+            }
+        }
+        .login-button{
+            @include column;
+            align-items: center;
+            
+            margin-bottom: 2rem;
+            button{
+                width: 150px;
+                height: 40px;
+                border-radius: 10px;
+                background-color: $primary;
+                color: white;
+                font-size: 20px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                transition: 0.3s ease;
+                margin-bottom: 1rem;
+
+                &:hover{
+                    background-color: $primaryHover;
+                }
+            }
+            span{
+                color: $secondary;
+                cursor: pointer;
+                transition: 0.3s ease;
+                &:hover{
+                    text-decoration: underline;
+                    color: $primary;
+                }
+            }
+        }
+            
+    }
+}
