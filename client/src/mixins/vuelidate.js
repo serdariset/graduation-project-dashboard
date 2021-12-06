@@ -1,10 +1,10 @@
 import { minLength, required, email } from "vuelidate/lib/validators";
 
-const mustBeText = (value) => {
+/* const mustBeText = (value) => {
   const numbers = /^[0-9]+$/;
   const result = value.match(numbers);
   return result;
-};
+}; */
 
 export const vuelidate = {
   validations: {
@@ -12,7 +12,7 @@ export const vuelidate = {
       name: {
         required,
         minLength: minLength(8),
-        mustBeText,
+        
       },
       email: {
         required,

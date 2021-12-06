@@ -13,6 +13,10 @@ export default {
   components: {
     Header,
   },
+  mounted(){
+    let isRemember = localStorage
+    isRemember.setItem('remember',false)
+  }
 };
 </script>
 <style lang="scss" scoped>

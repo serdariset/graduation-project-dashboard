@@ -53,9 +53,14 @@
             .input-group{
                 width: 75%;
                 position: relative;
+                .formError{
+                    border-color:red;
+                }
+                .formSuccess{
+                    border-color:$primary
+                }
 
-
-                input[type="text"],input[type="password"]{
+                .text-input{
                     width: 85%;
                     height: 45px;
                     outline: none;
@@ -64,9 +69,14 @@
                     padding-left: 1rem;
                     color: $secondary;
                     font-size: 16px;
-                    &:focus{
-                        border-color: $primary;
-                    }
+                   
+                    
+                }
+                .text-input.formError{
+                    border-color:red;
+                }
+                .text-input.formSuccess{
+                    border-color:$primary
                 }
                 input[type="checkbox"]{
                     width: 15px;
@@ -82,6 +92,11 @@
                 &:not(:last-child){
                     margin-bottom: 1.5rem;
                     @include center;
+                    flex-direction: column;
+                    .input-error{
+                        margin-top: 0.5rem;
+                        color: $danger;
+                    }
                 }
                 &:last-child{
                     margin-left: 3.5rem;
@@ -130,3 +145,4 @@
             
     }
 }
+
