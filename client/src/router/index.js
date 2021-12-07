@@ -7,9 +7,14 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: "/user",
     name: "User",
     component: User,
+  },
+  {
+    path: "/",
+    name:"Home",
+    component: ()=> import("@/views/Home/Home.vue")
   },
   {
     path: "/register",

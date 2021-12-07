@@ -11,7 +11,7 @@
         </div>
       </div>
       <form class="signup-form">
-           <div class="input-group">
+        <div class="input-group">
           <input
             type="text"
             placeholder="Name"
@@ -22,12 +22,18 @@
           <span
             class="input-error"
             v-if="$v.user.name.$dirty ? !$v.user.name.required : ''"
-            >This field is required
+            >*This field is required
           </span>
+
+          <span
+            class="input-error"
+            v-if="$v.user.name.$dirty ? !$v.user.name.mustBeText : ''"
+            >*Your name cannot contain numbers</span
+          >
           <span
             class="input-error"
             v-if="$v.user.name.$dirty ? !$v.user.name.minLength : ''"
-            >En az 8</span
+            >*Name must be at least eight characters</span
           >
         </div>
         <div class="input-group">
@@ -49,7 +55,7 @@
             >Please enter a valid email address</span
           >
         </div>
-         <div class="input-group">
+        <div class="input-group">
           <input
             type="text"
             placeholder="Password"
@@ -60,23 +66,62 @@
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.required : ''"
-            >This field is required
+            >*This field is required
           </span>
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.minLength : ''"
-            >8</span
+            >*Password must be at least eight characters</span
+          >
+          <span
+            class="input-error"
+            v-if="$v.user.password.$dirty ? !$v.user.password.numeric : ''"
+            >*Password must contain number</span
+          >
+          <span
+            class="input-error"
+            v-if="$v.user.password.$dirty ? !$v.user.password.uppercase : ''"
+            >*Password must contain uppercase letter</span
+          >
+          <span
+            class="input-error"
+            v-if="$v.user.password.$dirty ? !$v.user.password.lowercase : ''"
+            >*Password must contain lowercase letter</span
           >
         </div>
         <div class="input-group">
-            <input type="radio" name="role" value="admin" v-model="role" id="admin">
-            <label for="admin">Admin</label>
-            
-            <input type="radio" name="role" value="editor" v-model="role" id="editor">
-            <label for="editor">Editor</label>
+          <input
+            type="radio"
+            name="role"
+            value="admin"
+            v-model="role"
+            id="admin"
+          />
+          <label for="admin" class="adminRole"  @click="selected = 0" 
+          :class="selected == 0 ? 'selected' : ''"
+          
+            >Admin</label
+          >
+
+          <input
+            type="radio"
+            name="role"
+            value="editor"
+            v-model="role"
+            id="editor"
+          />
+          <label
+            for="editor"
+            class="editorRole"
+            @click="selected = 1"
+            :class="selected == 1 ? 'selected' : ''"
+            >Editor</label
+          >
         </div>
       </form>
-      {{role}}
+      <div class="login-button">
+        <button>Signup</button>
+      </div>
     </div>
   </div>
 </template>
@@ -92,7 +137,8 @@ export default {
         email: "",
         password: "",
       },
-      role:"",
+      role: "",
+      selected: -1,
     };
   },
   mixins: [vuelidate],
