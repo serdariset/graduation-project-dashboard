@@ -13,10 +13,10 @@ export default {
   components: {
     Header,
   },
-  mounted(){
-    let isRemember = localStorage
-    isRemember.setItem('remember',false)
-  }
+  mounted() {
+    let isRemember = localStorage;
+    isRemember.setItem("remember", false);
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -24,5 +24,6 @@ export default {
 #app {
   font-family: $roboto;
   font-size: 16px;
+  background-color: #c0d0d885;
 }
 </style>

@@ -12,7 +12,6 @@ export const vuelidate = {
       name: {
         required,
         minLength: minLength(8),
-        
       },
       email: {
         required,

@@ -1,0 +1,97 @@
+@import "@/assets/scss/colors.scss";
+@import "@/assets/scss/mixins.scss";
+@import "@/assets/scss/responsive.scss";
+
+#signup-container {
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 80px);
+  width: 100%;
+  .user-signup-group {
+    height: 700px;
+    width: 500px;
+    background-color: $white;
+    margin-top: 4rem;
+    box-shadow: 0 0 10px 1px rgba($color: $black, $alpha: 0.1);
+    border-radius: 10px;
+    padding: 2rem 1rem;
+    @include column;
+    align-items: center;
+
+    .signup-header {
+      @include center;
+
+      .logo {
+        display: flex;
+        img {
+          max-width: 105px;
+        }
+      }
+      .text-content {
+        @include column;
+        margin-left: 1rem;
+        .brand {
+          font-size: 45px;
+          color: $primary;
+          font-weight: 700;
+          height: 55px;
+        }
+        .name {
+          color: $primary;
+          font-size: 20px;
+          height: 20px;
+          margin-left: 2px;
+        }
+      }
+    }
+    .signup-form {
+      @include column;
+      align-items: center;
+      width: 100%;
+      margin: 3rem 0;
+      .input-group {
+        width: 75%;
+        position: relative;
+        @include center;
+       
+        
+        .text-input {
+          width: 85%;
+          height: 45px;
+          outline: none;
+          border: 2px solid $border;
+          border-radius: 10px;
+          padding-left: 1rem;
+          color: $secondary;
+          font-size: 16px;
+        }
+        .text-input.formError{
+            border-color:red;
+        }
+        .text-input.formSuccess{
+            border-color:$primary
+        }
+        &:not(:last-child){
+            margin-bottom: 2rem;
+             
+        }
+        .input-error{
+            position: absolute;
+            color: $danger;
+            bottom: -22px;
+            left: 30px;
+            font-size: 14px;
+        } 
+        label{
+            margin-left: 0.5rem;
+            color: $secondary;
+            font-size: 16px;
+            &:not(:last-child){
+                margin-right: 2rem;
+            }
+        }
+       
+      }
+    }
+  }
+}

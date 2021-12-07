@@ -1,7 +1,7 @@
 <template>
-  <div id="login-container">
-    <div class="user-login-group">
-      <div class="login-header">
+  <div id="signup-container">
+    <div class="user-signup-group">
+      <div class="signup-header">
         <span class="logo">
           <img :src="require(`@/assets/logo.png`)" alt="" />
         </span>
@@ -10,14 +10,33 @@
           <span class="name">Dashboard</span>
         </div>
       </div>
-      <form class="login-form">
+      <form class="signup-form">
+           <div class="input-group">
+          <input
+            type="text"
+            placeholder="Name"
+            v-model.trim="$v.user.name.$model"
+            class="text-input"
+            :class="formStatus($v.user.name)"
+          />
+          <span
+            class="input-error"
+            v-if="$v.user.name.$dirty ? !$v.user.name.required : ''"
+            >This field is required
+          </span>
+          <span
+            class="input-error"
+            v-if="$v.user.name.$dirty ? !$v.user.name.minLength : ''"
+            >En az 8</span
+          >
+        </div>
         <div class="input-group">
           <input
             type="text"
             placeholder="Email"
             v-model.trim="$v.user.email.$model"
-            :class="formStatus($v.user.email)"
             class="text-input"
+            :class="formStatus($v.user.email)"
           />
           <span
             class="input-error"
@@ -30,18 +49,14 @@
             >Please enter a valid email address</span
           >
         </div>
-        <div class="input-group">
+         <div class="input-group">
           <input
-            :type="isShow ? 'text' : 'password'"
+            type="text"
             placeholder="Password"
-            class="text-input"
             v-model.trim="$v.user.password.$model"
+            class="text-input"
             :class="formStatus($v.user.password)"
           />
-          <i
-            :class="isShow ? 'far fa-eye-slash' : 'far fa-eye'"
-            @click="showPassword"
-          ></i>
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.required : ''"
@@ -50,19 +65,18 @@
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.minLength : ''"
-            >Password must be at least eight characters
-          </span>
+            >8</span
+          >
         </div>
         <div class="input-group">
-          <input type="checkbox" id="always" v-model="remember" />
-          <label for="always">Remember me.</label>
+            <input type="radio" name="role" value="admin" v-model="role" id="admin">
+            <label for="admin">Admin</label>
+            
+            <input type="radio" name="role" value="editor" v-model="role" id="editor">
+            <label for="editor">Editor</label>
         </div>
       </form>
-
-      <div class="login-button">
-        <button>Login</button>
-        <span @click="createAnAccount()">I don't have an account.</span>
-      </div>
+      {{role}}
     </div>
   </div>
 </template>
@@ -70,25 +84,19 @@
 <script>
 import { vuelidate } from "@/mixins/vuelidate.js";
 export default {
-  name: "Login",
+  name: "SignUp",
   data() {
     return {
-      isShow: false,
-      remember: false,
       user: {
+        name: "",
         email: "",
         password: "",
       },
+      role:"",
     };
   },
   mixins: [vuelidate],
   methods: {
-    showPassword() {
-      this.isShow = !this.isShow;
-    },
-    createAnAccount() {
-      this.$router.push({ path: "/register" });
-    },
     formStatus(validation) {
       if (validation.$dirty) {
         if (validation.$error) {
@@ -101,6 +109,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss">
-@import "./Login.scss";
+@import "./SignUp.scss";
 </style>
