@@ -15,32 +15,33 @@
     "remember": "Remember me",
     "account": "I don't have an account"
   },
-  "register":{
-    "dashboard":"Dashboard",
-    "name":"Fullname",
-    "email":"E-mail",
-    "password":"Password",
-    "role":{
-      "admin":"Admin",
-      "editor":"Editor"
+  "register": {
+    "dashboard": "Dashboard",
+    "name": "Fullname",
+    "email": "E-mail",
+    "password": "Password",
+    "role": {
+      "admin": "Admin",
+      "editor": "Editor"
     },
-    "signup":"Sign Up"
+    "signup": "Sign Up"
   },
-  "errors":{
-    "required":"This field is required",
-    "isEmail":"Please enter a valid email address",
-    "password":{
-      "length":"Password must be at least eight characters",
-      "numeric":"Password must contain number",
-      "uppercase":"Password must contain uppercase letter",
-      "lowercase":"Password must contain lowercase letter"
+  "errors": {
+    "required": "This field is required",
+    "isEmail": "Please enter a valid email address",
+    "password": {
+      "length": "Password must be at least eight characters",
+      "numeric": "Password must contain number",
+      "uppercase": "Password must contain uppercase letter",
+      "lowercase": "Password must contain lowercase letter"
     },
-      "name":{
-        "number":"Your name cannot contain numbers",
-        "length":"Name must be at least eight characters"
-      },
-      "errorAll":"Please fill in the required fields!"
-      
-    
+    "name": {
+      "number": "Your name cannot contain numbers",
+      "length": "Name must be at least eight characters"
+    },
+    "errorAll": "Please fill in the required fields!"
+  },
+  "modal":{
+    "redirecting":"Redirecting..."
   }
 }

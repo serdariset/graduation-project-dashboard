@@ -36,23 +36,21 @@ router.post(
       await user.save();
 
       res.status(201).json({
-        status: {
-          tr:"Başarılı",
-          en:"Success"
-        },
-        user,
+        tr: "Başarılı",
+        en: "Success",
+        user: user.name,
       });
     } catch (e) {
       if (e.keyPattern.email == 1) {
         res.status(400).json({
-          status:{
-            tr:"Hata",
-            en:"Error"
+          tr: {
+            status: "Hata",
+            message: "Bu e-posta adresi kullanımda",
           },
-          message:{
-            tr:"Bu e-posta adresi kullanımda",
-            en:"This email is already exist"
-          }
+          en: {
+            status: "Error",
+            message: "This email is already exist",
+          },
         });
       }
     }
@@ -117,20 +115,20 @@ router.post(
     try {
       const verified = await verifyToken(token);
       const email = verified.payload.email;
-      if(token){
+      if (token) {
         User.findOne({ email }, (err, user) => {
-            if (!err) {
-              res.status(200).json(user);
-            } else {
-              res.status(401).json(err);
-            }
-          });
-      }else{
-          res.status(400).json({message:'Token not found'})
+          if (!err) {
+            res.status(200).json(user);
+          } else {
+            res.status(401).json(err);
+          }
+        });
+      } else {
+        res.status(400).json({ message: "Token not found" });
       }
     } catch (e) {
       res.status(401).json({
-        e
+        e,
       });
     }
   }

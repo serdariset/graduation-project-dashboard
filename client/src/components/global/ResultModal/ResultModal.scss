@@ -2,47 +2,71 @@
 @import "@/assets/scss/mixins.scss";
 @import "@/assets/scss/responsive.scss";
 
-#result-modal-container{
-    position: absolute;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    padding-top: 8rem;
-    justify-content: center;
-    background-color: rgba($color: #000000, $alpha: 0.2);
-    transition: 0.3s ease;
+#result-modal-container {
+  position: absolute;
+  height: calc(100vh - 80px);
+  width: 100%;
+  display: flex;
+  padding-top: 8rem;
+  justify-content: center;
+  background-color: rgba($color: #000000, $alpha: 0.2);
+  transition: 0.3s ease;
 
-
-    .result-modal{
-        width: 400px;
-        height: 300px;
-        box-shadow: 0 3px 10px rgba($color: #757575, $alpha: 0.3);
-        background-color: white;
-        border-radius: 10px;
-        padding:1rem ;
-        .close-window{
-            width: 100%;
-            height: auto;
-            display: flex;
-            justify-content: flex-end;
-            i{
-                cursor: pointer;
-                transition: 0.3s ease;
-                font-size: 18px;
-                color: $secondary;
-                &:hover{
-                    color: $danger;
-                }
-            }
+  .result-modal {
+    width: 400px;
+    height: 300px;
+    box-shadow: 0 3px 10px rgba($color: #757575, $alpha: 0.3);
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    .close-window {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: flex-end;
+      i {
+        cursor: pointer;
+        transition: 0.3s ease;
+        font-size: 18px;
+        color: $secondary;
+        &:hover {
+          color: $danger;
         }
-        .result-content{
-            @include center;
-            width: 100%;
-            height: 100%;
-            .result-icon{
-                font-size: 62px;
-                color: $primary;
-            }
-        }
+      }
     }
+    .result-content {
+      @include center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      .result-icon {
+        font-size: 62px;
+      }
+      .fa-check-circle {
+        color: $primary;
+      }
+      .fa-times-circle {
+        color: $danger;
+      }
+      .result-message{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          height: 100%;
+          .result-message-status{
+              text-transform: uppercase;
+              font-size: 25px;
+              font-weight: 700;
+              margin-bottom: 4rem;
+          }
+          .error-text{
+              color: $danger;
+          }
+          .success-text{
+              color:$primary
+          }
+      }
+    }
+  }
 }

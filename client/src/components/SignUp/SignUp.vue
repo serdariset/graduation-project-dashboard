@@ -135,7 +135,7 @@
       </div>
     </div> 
     
-    <ResultModal  v-show="resultModal == 1" :result="register.registerResult"/>
+    <ResultModal  v-if="resultModal == 1" :result="register.registerResult" @close="resultModal = 0"/>
   </div>
 </template>
 
@@ -158,7 +158,7 @@ export default {
       role: "",
       selected: -1,
       errorAll: 0,
-      resultModal:1
+      resultModal:0
     
     };
   },
@@ -186,9 +186,17 @@ export default {
       };
 
       if (!val.$error && val.$dirty && this.role !== "") {
-        this.userRegister(data)
-        this.errorAll = 0;
         this.resultModal = 1
+        this.userRegister(data).then(()=>{
+          if(this.register.registerResult.type == 1){
+            setTimeout(()=>{
+            this.resultModal = 0
+            this.$router.push({path:'/'})
+          },2500)
+          }
+        })
+        this.errorAll = 0;
+        
       } else {
         this.errorAll = 1;
       }
