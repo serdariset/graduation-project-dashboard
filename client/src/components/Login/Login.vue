@@ -22,12 +22,12 @@
           <span
             class="input-error"
             v-if="$v.user.email.$dirty ? !$v.user.email.required : ''"
-            >*{{$t('errors.required')}}
+            >*{{ $t("errors.required") }}
           </span>
           <span
             class="input-error"
             v-if="$v.user.email.$dirty ? !$v.user.email.email : ''"
-            >*{{$t('errors.isEmail')}}</span
+            >*{{ $t("errors.isEmail") }}</span
           >
         </div>
         <div class="input-group">
@@ -45,12 +45,12 @@
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.required : ''"
-            >*{{$t('errors.required')}}
+            >*{{ $t("errors.required") }}
           </span>
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.minLength : ''"
-            >*{{$t('errors.password.length')}}
+            >*{{ $t("errors.password.length") }}
           </span>
         </div>
         <div class="input-group">
@@ -79,7 +79,6 @@ export default {
         email: "",
         password: "",
       },
-      
     };
   },
   mixins: [vuelidate],

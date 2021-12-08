@@ -36,12 +36,24 @@ router.post(
       await user.save();
 
       res.status(201).json({
-        status: "success",
+        status: {
+          tr:"Başarılı",
+          en:"Success"
+        },
         user,
       });
     } catch (e) {
       if (e.keyPattern.email == 1) {
-        res.status(400).json("This email is already exist");
+        res.status(400).json({
+          status:{
+            tr:"Hata",
+            en:"Error"
+          },
+          message:{
+            tr:"Bu e-posta adresi kullanımda",
+            en:"This email is already exist"
+          }
+        });
       }
     }
   }

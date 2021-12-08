@@ -38,7 +38,8 @@
     "name":{
       "number":"İsim rakam içeremez",
       "length":"İsim 8 karakterden uzun olmalıdır"
-    }
+    },
+    "errorAll":"Lütfen gerekli alanları doldurunuz!"
   }
 
 }

@@ -38,7 +38,8 @@
       "name":{
         "number":"Your name cannot contain numbers",
         "length":"Name must be at least eight characters"
-      }
+      },
+      "errorAll":"Please fill in the required fields!"
       
     
   }
