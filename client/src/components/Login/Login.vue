@@ -7,14 +7,14 @@
         </span>
         <div class="text-content">
           <span class="brand">Energy</span>
-          <span class="name">Dashboard</span>
+          <span class="name">{{ $t("login.dashboard") }}</span>
         </div>
       </div>
       <form class="login-form">
         <div class="input-group">
           <input
             type="text"
-            placeholder="Email"
+            v-bind:placeholder="$t('login.email')"
             v-model.trim="$v.user.email.$model"
             :class="formStatus($v.user.email)"
             class="text-input"
@@ -22,18 +22,18 @@
           <span
             class="input-error"
             v-if="$v.user.email.$dirty ? !$v.user.email.required : ''"
-            >This field is required
+            >*{{$t('errors.required')}}
           </span>
           <span
             class="input-error"
             v-if="$v.user.email.$dirty ? !$v.user.email.email : ''"
-            >Please enter a valid email address</span
+            >*{{$t('errors.isEmail')}}</span
           >
         </div>
         <div class="input-group">
           <input
             :type="isShow ? 'text' : 'password'"
-            placeholder="Password"
+            v-bind:placeholder="$t('login.password')"
             class="text-input"
             v-model.trim="$v.user.password.$model"
             :class="formStatus($v.user.password)"
@@ -45,23 +45,23 @@
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.required : ''"
-            >This field is required
+            >*{{$t('errors.required')}}
           </span>
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.minLength : ''"
-            >Password must be at least eight characters
+            >*{{$t('errors.password.length')}}
           </span>
         </div>
         <div class="input-group">
           <input type="checkbox" id="always" v-model="remember" />
-          <label for="always">Remember me.</label>
+          <label for="always">{{ $t("login.remember") }}</label>
         </div>
       </form>
 
       <div class="login-button">
-        <button>Login</button>
-        <span @click="createAnAccount()">I don't have an account.</span>
+        <button>{{ $t("login.login") }}</button>
+        <span @click="createAnAccount()">{{ $t("login.account") }}</span>
       </div>
     </div>
   </div>
@@ -79,6 +79,7 @@ export default {
         email: "",
         password: "",
       },
+      
     };
   },
   mixins: [vuelidate],
@@ -87,7 +88,7 @@ export default {
       this.isShow = !this.isShow;
     },
     createAnAccount() {
-      this.$router.push({ path: "/register" });
+      this.$router.push({ path: "/register" }, () => {});
     },
     formStatus(validation) {
       if (validation.$dirty) {

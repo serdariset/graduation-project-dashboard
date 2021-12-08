@@ -13,7 +13,12 @@ export default {
   components: {
     Header,
   },
-  
+  mounted() {
+    const remember = localStorage.getItem("isAuth");
+    if (remember == null || remember == false) {
+      this.$router.push({ path: "/" }, () => {});
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>

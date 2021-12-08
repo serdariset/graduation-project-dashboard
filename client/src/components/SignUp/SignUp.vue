@@ -7,14 +7,14 @@
         </span>
         <div class="text-content">
           <span class="brand">Energy</span>
-          <span class="name">Dashboard</span>
+          <span class="name">{{$t('register.dashboard')}}</span>
         </div>
       </div>
       <form class="signup-form">
         <div class="input-group">
           <input
             type="text"
-            placeholder="Name"
+            v-bind:placeholder="$t('register.name')"
             v-model.trim="$v.user.name.$model"
             class="text-input"
             :class="formStatus($v.user.name)"
@@ -22,24 +22,24 @@
           <span
             class="input-error"
             v-if="$v.user.name.$dirty ? !$v.user.name.required : ''"
-            >*This field is required
+            >*{{$t('errors.required')}}
           </span>
 
           <span
             class="input-error"
             v-if="$v.user.name.$dirty ? !$v.user.name.mustBeText : ''"
-            >*Your name cannot contain numbers</span
+            >*{{$t('errors.name.number')}}</span
           >
           <span
             class="input-error"
             v-if="$v.user.name.$dirty ? !$v.user.name.minLength : ''"
-            >*Name must be at least eight characters</span
+            >*{{$t('errors.name.length')}}</span
           >
         </div>
         <div class="input-group">
           <input
             type="text"
-            placeholder="Email"
+            v-bind:placeholder="$t('register.email')"
             v-model.trim="$v.user.email.$model"
             class="text-input"
             :class="formStatus($v.user.email)"
@@ -47,18 +47,18 @@
           <span
             class="input-error"
             v-if="$v.user.email.$dirty ? !$v.user.email.required : ''"
-            >This field is required
+            >*{{$t('errors.required')}}
           </span>
           <span
             class="input-error"
             v-if="$v.user.email.$dirty ? !$v.user.email.email : ''"
-            >Please enter a valid email address</span
+            >*{{$t('errors.isEmail')}}</span
           >
         </div>
         <div class="input-group">
           <input
             type="text"
-            placeholder="Password"
+            v-bind:placeholder="$t('register.password')"
             v-model.trim="$v.user.password.$model"
             class="text-input"
             :class="formStatus($v.user.password)"
@@ -66,27 +66,27 @@
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.required : ''"
-            >*This field is required
+            >*{{$t('errors.required')}}
           </span>
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.minLength : ''"
-            >*Password must be at least eight characters</span
+            >*{{$t('errors.password.length')}}</span
           >
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.numeric : ''"
-            >*Password must contain number</span
+            >*{{$t('errors.password.numeric')}}</span
           >
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.uppercase : ''"
-            >*Password must contain uppercase letter</span
+            >*{{$t('errors.password.uppercase')}}</span
           >
           <span
             class="input-error"
             v-if="$v.user.password.$dirty ? !$v.user.password.lowercase : ''"
-            >*Password must contain lowercase letter</span
+            >*{{$t('errors.password.lowercase')}}</span
           >
         </div>
         <div class="input-group">
@@ -97,10 +97,12 @@
             v-model="role"
             id="admin"
           />
-          <label for="admin" class="adminRole"  @click="selected = 0" 
-          :class="selected == 0 ? 'selected' : ''"
-          
-            >Admin</label
+          <label
+            for="admin"
+            class="adminRole"
+            @click="selected = 0"
+            :class="selected == 0 ? 'selected' : ''"
+            >{{$t('register.role.admin')}}</label
           >
 
           <input
@@ -115,7 +117,7 @@
             class="editorRole"
             @click="selected = 1"
             :class="selected == 1 ? 'selected' : ''"
-            >Editor</label
+            >{{$t('register.role.editor')}}</label
           >
         </div>
       </form>

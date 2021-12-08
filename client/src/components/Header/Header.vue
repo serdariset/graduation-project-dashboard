@@ -8,9 +8,9 @@
         </div>
         <!-- Menu Section -->
         <div class="header-menu">
-          <span class="menu-item">Factory List</span>
-          <span class="menu-item">Factory Info</span>
-          <span class="menu-item">User Settings</span>
+          <span class="menu-item">{{ $t("header.factoryList") }}</span>
+          <span class="menu-item">{{ $t("header.factoryInfo") }}</span>
+          <span class="menu-item">{{ $t("header.userSettings") }}</span>
         </div>
       </div>
       <div class="header-right-side">

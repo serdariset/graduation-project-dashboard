@@ -1,5 +1,44 @@
 {
   "main": {
     "welcome":"{company}'ye hoş geldiniz..."
+  },
+  "header":{
+    "factoryList":"Fabrika Listesi",
+    "factoryInfo":"Fabrika Bilgisi",
+    "userSettings":"Kullanıcı Ayarları"
+  },
+  "login":{
+    "dashboard":"Admin paneli",
+    "email":"E-posta",
+    "password":"Parola",
+    "login":"Giriş Yap",
+    "remember":"Beni Hatırla",
+    "account":"Bir hesabım yok"
+  },
+  "register":{
+    "dashboard":"Admin paneli",
+    "name":"Ad soyad",
+    "email":"E-posta",
+    "password":"Parola",
+    "role":{
+      "admin":"Yönetici",
+      "editor":"Editör"
+    },
+    "signup":"Kayıt ol"
+  },
+  "errors":{
+    "required":"Bu alan gereklidir",
+    "isEmail":"Lütfen geçerli bir e-posta adresi giriniz",
+    "password":{
+      "length":"Parola 8 karakterden uzun olmalıdır",
+      "numeric":"Parola rakam içermelidir",
+      "uppercase":"Parola büyük karakter içermelidir",
+      "lowercase":"Parola küçük karakter içermelidir"
+    },
+    "name":{
+      "number":"İsim rakam içeremez",
+      "length":"İsim 8 karakterden uzun olmalıdır"
+    }
   }
+
 }

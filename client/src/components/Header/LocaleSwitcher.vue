@@ -1,14 +1,18 @@
 <template>
   <div class="info-item header-language-switcher">
-    <select
-      name="lang"
-      id="language"
-      v-model="setLanguage"
-      @change="switchLocale(setLanguage)"
+    <span
+      @click="switchLocale('tr'), (active = 0)"
+      class="language"
+      :class="active == 0 ? 'activeLang' : ''"
+      >TR</span
     >
-      <option value="Türkçe">Türkçe</option>
-      <option value="English">English</option>
-    </select>
+    <span
+      @click="switchLocale('en'), (active = 1)"
+      class="language"
+      :class="active == 1 ? 'activeLang' : ''"
+      >EN</span
+    >
+   
   </div>
 </template>
 <script>
@@ -16,6 +20,8 @@ export default {
   data() {
     return {
       setLanguage: "English",
+      active: 0,
+      locales: process.env.VUE_APP_I18N_SUPPORTED_LOCALE.split(","),
     };
   },
   methods: {

@@ -1,5 +1,45 @@
 {
-    "main": {
-      "welcome":"Welcome to {company}"
-    }
+  "main": {
+    "welcome": "Welcome to {company}"
+  },
+  "header": {
+    "factoryList": "Factory List",
+    "factoryInfo": "Factory Info",
+    "userSettings": "User Settings"
+  },
+  "login": {
+    "dashboard": "Dashboard",
+    "email": "E-mail",
+    "password": "Password",
+    "login": "Login",
+    "remember": "Remember me",
+    "account": "I don't have an account"
+  },
+  "register":{
+    "dashboard":"Dashboard",
+    "name":"Fullname",
+    "email":"E-mail",
+    "password":"Password",
+    "role":{
+      "admin":"Admin",
+      "editor":"Editor"
+    },
+    "signup":"Sign Up"
+  },
+  "errors":{
+    "required":"This field is required",
+    "isEmail":"Please enter a valid email address",
+    "password":{
+      "length":"Password must be at least eight characters",
+      "numeric":"Password must contain number",
+      "uppercase":"Password must contain uppercase letter",
+      "lowercase":"Password must contain lowercase letter"
+    },
+      "name":{
+        "number":"Your name cannot contain numbers",
+        "length":"Name must be at least eight characters"
+      }
+      
+    
   }
+}

@@ -55,7 +55,7 @@ export const vuelidate = {
         minLength: minLength(8),
         numeric,
         uppercase,
-        lowercase
+        lowercase,
       },
     },
   },
