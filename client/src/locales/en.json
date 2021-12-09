@@ -42,6 +42,12 @@
     "errorAll": "Please fill in the required fields!"
   },
   "modal":{
-    "redirecting":"Redirecting..."
+    "redirecting":"Redirecting...",
+    "exist":"This e-mail is already exist",
+    "warning":"Error",
+    "success":"Success",
+    "user":"No registered user found for this e-mail address.",
+    "password":"You entered the wrong password.",
+    "welcome":"Hi {user}, Welcome!"
   }
 }

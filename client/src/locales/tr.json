@@ -27,22 +27,29 @@
     "signup":"Kayıt ol"
   },
   "errors":{
-    "required":"Bu alan gereklidir",
-    "isEmail":"Lütfen geçerli bir e-posta adresi giriniz",
+    "required":"Bu alan gereklidir.",
+    "isEmail":"Lütfen geçerli bir e-posta adresi giriniz.",
     "password":{
-      "length":"Parola 8 karakterden uzun olmalıdır",
-      "numeric":"Parola rakam içermelidir",
-      "uppercase":"Parola büyük karakter içermelidir",
-      "lowercase":"Parola küçük karakter içermelidir"
+      "length":"Parola 8 karakterden uzun olmalıdır.",
+      "numeric":"Parola rakam içermelidir.",
+      "uppercase":"Parola büyük karakter içermelidir.",
+      "lowercase":"Parola küçük karakter içermelidir."
     },
     "name":{
-      "number":"İsim rakam içeremez",
-      "length":"İsim 8 karakterden uzun olmalıdır"
+      "number":"İsim rakam içeremez.",
+      "length":"İsim 8 karakterden uzun olmalıdır."
     },
     "errorAll":"Lütfen gerekli alanları doldurunuz!"
   },
   "modal":{
-    "redirecting":"Yönlendiriliyorsunuz..."
+    "redirecting":"Yönlendiriliyorsunuz...",
+    "exist":"Bu e-posta adresi kullanımda.",
+    "warning":"Hata",
+    "success":"Başarılı",
+    "user":"Bu e-posta adresine kayıtlı kullanıcı bulunamadı.",
+    "password":"Yanlış parola girdiniz.",
+    "welcome":"Merhaba {user}, Hoş geldin!"
+
   }
 
 }

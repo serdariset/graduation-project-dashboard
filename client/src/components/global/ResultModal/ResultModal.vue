@@ -4,45 +4,34 @@
       <span class="close-window" @click="closeWindow(0)"
         ><i class="fas fa-times"></i
       ></span>
-      <div class="result-content" v-if="result.type == 1">
+      <div class="result-content" v-if="result.status == true">
         <div class="result-icon">
           <i class="far fa-check-circle"></i>
         </div>
-        <div class="result-message" v-if="locale == 'tr'">
+        <div class="result-message">
           <div class="result-message-status success-text">
-            {{ result.res.tr }}
+            {{ $t("modal.success") }}
           </div>
-          <div class="result-message-text success-text">
-            {{ $t("modal.redirecting") }}
+          <div class="result-message-text success-text" v-if="result.user">
+            {{ $t("modal.welcome", {user: result.user}) }} <br>
+            {{$t('modal.redirecting')}}
           </div>
-        </div>
-        <div class="result-message" v-else-if="locale == 'en'">
-          <div class="result-message-status success-text">
-            {{ result.res.en }}
-          </div>
-          <div class="result-message-text success-text">
+           <div class="result-message-text success-text" v-else>
             {{ $t("modal.redirecting") }}
           </div>
         </div>
       </div>
-      <div class="result-content" v-else-if="result.type == 0">
+
+      <div class="result-content" v-else-if="result.status == false">
         <div class="result-icon">
           <i class="far fa-times-circle"></i>
         </div>
-        <div class="result-message" v-if="locale == 'tr'">
+        <div class="result-message">
           <div class="result-message-status error-text">
-            {{ result.error.tr.status }}
+            {{ $t("modal.warning") }}
           </div>
           <div class="result-message-text error-text">
-            {{ result.error.tr.message }}
-          </div>
-        </div>
-        <div class="result-message" v-else-if="locale == 'en'">
-          <div class="result-message-status error-text">
-            {{ result.error.en.status }}
-          </div>
-          <div class="result-message-text error-text">
-            {{ result.error.en.message }}
+            {{ message }}
           </div>
         </div>
       </div>
@@ -55,12 +44,9 @@ export default {
   name: "ResultModal",
   props: {
     result: Object,
+    message: String,
   },
-  computed: {
-    locale() {
-      return this.$i18n.locale;
-    },
-  },
+
   methods: {
     closeWindow(val) {
       this.$emit("close", val);

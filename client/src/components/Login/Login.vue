@@ -60,17 +60,30 @@
       </form>
 
       <div class="login-button">
-        <button>{{ $t("login.login") }}</button>
+        <button @click="getUserTokenForLogin($v.user)">
+          {{ $t("login.login") }}
+        </button>
         <span @click="createAnAccount()">{{ $t("login.account") }}</span>
       </div>
     </div>
+    <ResultModal
+      v-if="resultModal == 1"
+      :result="login.userToken"
+      :message="login.userToken.type == 'user' ? $t('modal.user') : $t('modal.password')"
+      @close="resultModal = 0"
+    />
   </div>
 </template>
 
 <script>
 import { vuelidate } from "@/mixins/vuelidate.js";
+import { mapActions, mapState } from "vuex";
+import ResultModal from "@/components/global/ResultModal/ResultModal.vue"
 export default {
   name: "Login",
+  components:{
+    ResultModal,
+  },
   data() {
     return {
       isShow: false,
@@ -79,10 +92,15 @@ export default {
         email: "",
         password: "",
       },
+      resultModal: 0,
     };
+  },
+  computed: {
+    ...mapState(["login"]),
   },
   mixins: [vuelidate],
   methods: {
+    ...mapActions(["getUserToken"]),
     showPassword() {
       this.isShow = !this.isShow;
     },
@@ -96,6 +114,30 @@ export default {
         } else {
           return "formSuccess";
         }
+      }
+    },
+    getUserTokenForLogin(val) {
+      const data = {
+        email: this.user.email,
+        password: this.user.password,
+      };
+
+      if (
+        !val.email.$error &&
+        val.email.$dirty &&
+        !val.password.$error &&
+        val.password.$dirty
+      ) {
+        this.resultModal = 1
+        this.getUserToken({ data: data, remember: this.remember })
+         .then(()=>{
+          if(this.login.userToken.status){
+            setTimeout(()=>{
+            this.$router.push({path:"/home"})
+            this.resultModal = 0
+          },1000)
+          }
+        }) 
       }
     },
   },

@@ -57,7 +57,7 @@
         </div>
         <div class="input-group">
           <input
-            type="text"
+            type="password"
             v-bind:placeholder="$t('register.password')"
             v-model.trim="$v.user.password.$model"
             class="text-input"
@@ -135,6 +135,7 @@
     <ResultModal
       v-if="resultModal == 1"
       :result="register.registerResult"
+      :message="$t('modal.exist')"
       @close="resultModal = 0"
     />
   </div>
@@ -188,7 +189,7 @@ export default {
       if (!val.$error && val.$dirty && this.role !== "") {
         this.resultModal = 1;
         this.userRegister(data).then(() => {
-          if (this.register.registerResult.type == 1) {
+          if (this.register.registerResult.status == true) {
             setTimeout(() => {
               this.resultModal = 0;
               this.$router.push({ path: "/" });

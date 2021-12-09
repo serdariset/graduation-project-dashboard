@@ -36,21 +36,13 @@ router.post(
       await user.save();
 
       res.status(201).json({
-        tr: "Başarılı",
-        en: "Success",
+        status:true,
         user: user.name,
       });
     } catch (e) {
       if (e.keyPattern.email == 1) {
         res.status(400).json({
-          tr: {
-            status: "Hata",
-            message: "Bu e-posta adresi kullanımda",
-          },
-          en: {
-            status: "Error",
-            message: "This email is already exist",
-          },
+          status:false
         });
       }
     }
@@ -91,13 +83,23 @@ router.post(
               };
 
               const accessToken = createToken(payload);
-              res.status(200).json(accessToken);
+              res.status(200).json({
+                status:true,
+                user:user.name,
+                accessToken,
+              });
             } else {
-              res.status(400).json(error);
+              res.status(400).json({
+                status:false,
+                type:"password",
+              });
             }
           });
         } else {
-          res.status(400).json(err);
+          res.status(400).json({
+            status:false,
+            type:"user",
+          });
         }
       });
     } catch (e) {
