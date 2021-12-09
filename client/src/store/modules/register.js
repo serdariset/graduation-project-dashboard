@@ -16,11 +16,14 @@ export default {
       return axios
         .post(`${state.apiURL}/user/register`, payload)
         .then((res) => {
-          commit("GET_REGISTER_RESULT", {res:res.data,type:1});
+          commit("GET_REGISTER_RESULT", { res: res.data, type: 1 });
           console.log(res);
         })
         .catch((error) => {
-          commit("GET_REGISTER_RESULT", {error:error.response.data,type:0}); 
+          commit("GET_REGISTER_RESULT", {
+            error: error.response.data,
+            type: 0,
+          });
           console.log(error.response.data);
         });
     },

@@ -1,8 +1,6 @@
 <template>
   <div id="signup-container">
-
     <div class="user-signup-group">
-
       <div class="signup-header">
         <span class="logo">
           <img :src="require(`@/assets/logo.png`)" alt="" />
@@ -131,22 +129,25 @@
         <button @click="createAccount($v.user)">
           {{ $t("register.signup") }}
         </button>
-       
       </div>
-    </div> 
-    
-    <ResultModal  v-if="resultModal == 1" :result="register.registerResult" @close="resultModal = 0"/>
+    </div>
+
+    <ResultModal
+      v-if="resultModal == 1"
+      :result="register.registerResult"
+      @close="resultModal = 0"
+    />
   </div>
 </template>
 
 <script>
 import { vuelidate } from "@/mixins/vuelidate.js";
 import { mapActions, mapState } from "vuex";
-import ResultModal from "@/components/global/ResultModal/ResultModal.vue"
+import ResultModal from "@/components/global/ResultModal/ResultModal.vue";
 export default {
   name: "SignUp",
-  components:{
-    ResultModal
+  components: {
+    ResultModal,
   },
   data() {
     return {
@@ -158,8 +159,7 @@ export default {
       role: "",
       selected: -1,
       errorAll: 0,
-      resultModal:0
-    
+      resultModal: 0,
     };
   },
   computed: {
@@ -186,17 +186,16 @@ export default {
       };
 
       if (!val.$error && val.$dirty && this.role !== "") {
-        this.resultModal = 1
-        this.userRegister(data).then(()=>{
-          if(this.register.registerResult.type == 1){
-            setTimeout(()=>{
-            this.resultModal = 0
-            this.$router.push({path:'/'})
-          },2500)
+        this.resultModal = 1;
+        this.userRegister(data).then(() => {
+          if (this.register.registerResult.type == 1) {
+            setTimeout(() => {
+              this.resultModal = 0;
+              this.$router.push({ path: "/" });
+            }, 2500);
           }
-        })
+        });
         this.errorAll = 0;
-        
       } else {
         this.errorAll = 1;
       }
