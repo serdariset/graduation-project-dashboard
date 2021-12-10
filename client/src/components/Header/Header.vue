@@ -6,32 +6,34 @@
         <div class="header-logo">
           <img src="@/assets/logo.png" alt="Logo" />
         </div>
-        <!-- Menu Section -->
-        <div class="header-menu">
-          <span class="menu-item">{{ $t("header.factoryList") }}</span>
-          <span class="menu-item">{{ $t("header.factoryInfo") }}</span>
-          <span class="menu-item">{{ $t("header.userSettings") }}</span>
-        </div>
+     
+        
       </div>
       <div class="header-right-side">
         <!-- Information & Language & Login -->
-        <div class="info-item header-user-info">Serdar İset</div>
-        <LocaleSwitcher />
-        <div class="info-item header-login">
-          <i class="fas fa-sign-out-alt"></i>
+        <div class="info-item header-user-info">
+          {{ setUserName}}
         </div>
+        <LocaleSwitcher />
+       
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import LocaleSwitcher from "./LocaleSwitcher.vue";
 export default {
   name: "Header",
   components: {
     LocaleSwitcher,
   },
+  computed: {
+    ...mapGetters(["setUserName"]),
+    
+  },
+  
 };
 </script>
 <style lang="scss">

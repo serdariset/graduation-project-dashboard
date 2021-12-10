@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Header />
+    <div>
+      <Header />
+    </div>
     <div>
       <router-view></router-view>
     </div>
@@ -8,14 +10,17 @@
 </template>
 <script>
 import Header from "@/components/Header/Header.vue";
+
 export default {
   name: "App",
   components: {
     Header,
   },
-  mounted() {
-    const remember = localStorage.getItem("isAuth");
-    if (remember == null || remember == false) {
+  created() {
+    const remember = localStorage.getItem("remember");
+    if (remember) {
+      this.$router.push({ path: "/home" }, () => {});
+    } else {
       this.$router.push({ path: "/" }, () => {});
     }
   },
@@ -27,5 +32,9 @@ export default {
   font-family: $roboto;
   font-size: 16px;
   background-color: #c0d0d885;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 }
 </style>

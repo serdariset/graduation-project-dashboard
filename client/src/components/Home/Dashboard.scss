@@ -1,0 +1,65 @@
+@import "@/assets/scss/colors.scss";
+@import "@/assets/scss/mixins.scss";
+@import "@/assets/scss/responsive.scss";
+
+#dashboard-container {
+  #sidebar-container {
+    @include column;
+    border-right: 1px solid $border;
+    width: 300px;
+    height: calc(100vh - (80px + 0rem));
+    background-color: $white;
+    padding: 2rem 3rem;
+
+    justify-content: space-between;
+
+    .sidebar-menu {
+      @include column;
+      height: 100%;
+      width: 100%;
+      color: $secondary;
+      font-weight: 700;
+      cursor: pointer;
+      .menu-item {
+        background-color: $bground;
+        padding-left: 1rem;
+        height: 55px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        transition: 0.3s ease;
+        
+        &:not(:last-child) {
+          margin-bottom: 0.5rem;
+        }
+        &:hover {
+          color: $primary;
+        }
+      }
+      .selected{
+        color: $primary;
+    }
+    }
+    .profile-menu {
+      background-color: $bground;
+      justify-content: space-between;
+      padding: 0 1rem;
+      height: 55px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      color: $secondary;
+      .user-name{
+          font-weight: 700;
+          cursor: default;
+      }
+      .fa-sign-out-alt{
+          transition: 0.3s ease;
+          &:hover{
+              color:$danger;
+              cursor: pointer;
+          }
+      }
+    }
+  }
+}

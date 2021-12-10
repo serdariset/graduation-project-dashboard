@@ -13,10 +13,10 @@
             {{ $t("modal.success") }}
           </div>
           <div class="result-message-text success-text" v-if="result.user">
-            {{ $t("modal.welcome", {user: result.user}) }} <br>
-            {{$t('modal.redirecting')}}
+            {{ $t("modal.welcome", { user: result.user }) }} <br />
+            {{ $t("modal.redirecting") }}
           </div>
-           <div class="result-message-text success-text" v-else>
+          <div class="result-message-text success-text" v-else>
             {{ $t("modal.redirecting") }}
           </div>
         </div>

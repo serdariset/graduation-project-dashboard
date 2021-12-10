@@ -108,7 +108,7 @@ router.post(
   }
 );
 
-router.post(
+router.get(
   "/profile",
 
   async (req, res) => {
