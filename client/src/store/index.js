@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import register from "./modules/register";
 import login from "./modules/login";
 import profile from "./modules/profile";
+import list from "./modules/list";
 
 Vue.use(Vuex);
 
@@ -14,5 +15,6 @@ export default new Vuex.Store({
     register,
     login,
     profile,
+    list,
   },
 });

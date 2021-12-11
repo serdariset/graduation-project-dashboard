@@ -49,5 +49,16 @@
     "user":"No registered user found for this e-mail address.",
     "password":"You entered the wrong password.",
     "welcome":"Hi {user}, Welcome!"
+  },
+  "list":{
+    "name":"Factory List",
+    "column":{
+      "factoryName":"Factory Name",
+      "memberShipDate":"Membership Date",
+      "memberShipEndingDate":"Membership Ending Date",
+      "employessNumber":"Number of Employees",
+      "specialMemberShip":"Special Membership",
+      "actions":"Actions"
+    }
   }
 }

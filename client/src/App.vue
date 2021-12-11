@@ -18,10 +18,9 @@ export default {
   },
   created() {
     const remember = localStorage.getItem("remember");
-    if (remember) {
-      this.$router.push({ path: "/home" }, () => {});
-    } else {
+    if (remember == null) {
       this.$router.push({ path: "/" }, () => {});
+      
     }
   },
 };
@@ -36,7 +35,5 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  
 }
-
 </style>

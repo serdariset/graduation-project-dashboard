@@ -1,18 +1,17 @@
 <template>
   <div>
-     <SideBar/>
-    
-    </div>
+    <SideBar />
+  </div>
 </template>
 
 <script>
 import { mapActions, mapState } from "vuex";
-import SideBar from "@/components/global/SideBar/SideBar.vue"
+import SideBar from "@/components/global/SideBar/SideBar.vue";
 
 export default {
   name: "Home",
   components: {
-    SideBar
+    SideBar,
   },
   data() {
     return {};

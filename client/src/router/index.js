@@ -17,11 +17,17 @@ const routes = [
     path: "/home",
     name: "Home",
     component: Home,
+    
   },
   {
     path: "/register",
     name: "Register",
     component: Register,
+  },
+  {
+    path: "/factory-info",
+    name: "FactoryInfo",
+    component: () => import("@/views/FactoryInfo/FactoryInfo.vue"),
   },
 ];
 

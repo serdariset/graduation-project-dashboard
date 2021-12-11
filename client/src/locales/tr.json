@@ -49,7 +49,17 @@
     "user":"Bu e-posta adresine kayıtlı kullanıcı bulunamadı.",
     "password":"Yanlış parola girdiniz.",
     "welcome":"Merhaba {user}, Hoş geldin!"
-
+  },
+  "list":{
+    "name":"Fabrika Listesi",
+    "column":{
+      "factoryName":"Fabrika Adı",
+      "memberShipDate":"Üyelik Tarihi",
+      "memberShipEndingDate":"Üyelik Bitiş Tarihi",
+      "employessNumber":"Çalışan Sayısı",
+      "specialMemberShip":"Özel Üye",
+      "actions":"Eylemler"
+    }
   }
 
 }

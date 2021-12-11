@@ -4,7 +4,7 @@
       <div class="header-left-side">
         <!-- Logo Section -->
         <div class="header-logo">
-          <img src="@/assets/logo.png" alt="Logo" />
+          <img src="@/assets/logo.png" alt="Logo" @click="homePage()" />
         </div>
       </div>
       <div class="header-right-side">
@@ -28,6 +28,11 @@ export default {
   },
   computed: {
     ...mapGetters(["setUserName"]),
+  },
+  methods: {
+    homePage() {
+      this.$router.push({ path: "/home" }, () => {});
+    },
   },
 };
 </script>

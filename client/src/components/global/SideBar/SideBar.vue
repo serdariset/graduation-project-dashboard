@@ -4,7 +4,7 @@
       <span
         class="menu-item"
         :class="menu == 0 ? 'selected' : ''"
-        @click="getFactoryList()"
+        @click="goFactoryList()"
       >
         {{ $t("header.factoryList") }}
       </span>
@@ -50,6 +50,11 @@ export default {
       this.$router.push({ path: "/" }, () => {
         location.reload();
       });
+    },
+    goFactoryList() {
+      this.menu = 0;
+      this.$router.push({ path: "factory-info" }, () => {});
+    
     },
   },
 };
