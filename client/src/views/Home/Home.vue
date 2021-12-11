@@ -1,14 +1,18 @@
 <template>
-  <div><Dashboard/></div>
+  <div>
+     <SideBar/>
+    
+    </div>
 </template>
 
 <script>
 import { mapActions, mapState } from "vuex";
-import Dashboard from "@/components/Home/Dashboard.vue"
+import SideBar from "@/components/global/SideBar/SideBar.vue"
+
 export default {
   name: "Home",
-  components:{
-    Dashboard
+  components: {
+    SideBar
   },
   data() {
     return {};
@@ -16,14 +20,14 @@ export default {
   created() {
     const local = { token: localStorage.getItem("user") };
     const session = { token: sessionStorage.getItem("user") };
-    if(local){
+    if (local) {
       if (local.token !== null) {
-      this.getUserInfo(local);
+        this.getUserInfo(local);
+      } else {
+        this.getUserInfo(session);
+      }
     } else {
-      this.getUserInfo(session);
-    }
-    }else{
-      this.$router.push({path:"/"},()=>{})
+      this.$router.push({ path: "/" }, () => {});
     }
   },
   computed: {

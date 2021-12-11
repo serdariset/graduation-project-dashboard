@@ -24,11 +24,11 @@ export default {
     },
   },
   getters: {
-    setUserName(state){
-      return state.userInfo.name
+    setUserName(state) {
+      return state.userInfo.name;
     },
-    setUserRole(state){
-      return state.userInfo.role
-    }
+    setUserRole(state) {
+      return state.userInfo.role;
+    },
   },
 };

@@ -1,9 +1,7 @@
 @import "@/assets/scss/colors.scss";
 @import "@/assets/scss/mixins.scss";
 @import "@/assets/scss/responsive.scss";
-
-#dashboard-container {
-  #sidebar-container {
+#sidebar-container {
     @include column;
     border-right: 1px solid $border;
     width: 300px;
@@ -62,4 +60,3 @@
       }
     }
   }
-}

@@ -6,16 +6,13 @@
         <div class="header-logo">
           <img src="@/assets/logo.png" alt="Logo" />
         </div>
-     
-        
       </div>
       <div class="header-right-side">
         <!-- Information & Language & Login -->
         <div class="info-item header-user-info">
-          {{ setUserName}}
+          {{ setUserName }}
         </div>
         <LocaleSwitcher />
-       
       </div>
     </div>
   </div>
@@ -31,9 +28,7 @@ export default {
   },
   computed: {
     ...mapGetters(["setUserName"]),
-    
   },
-  
 };
 </script>
 <style lang="scss">

@@ -5,7 +5,7 @@ const cors = require('cors');
 
 //Routes
 const user = require('./routes/User')
-
+const list = require('./database/list/list')
 
 //Configurations
 const app = express()
@@ -18,6 +18,7 @@ app.use(express.urlencoded({extended:true}))
 
 //API Requests
 app.use('/user',user)
+app.use('/factory',list)
 
 //MongoDB Connection
 mongoose.connect(process.env.MONGODB_CLUSTER,{
