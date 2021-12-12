@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import LocaleSwitcher from "./LocaleSwitcher.vue";
 export default {
   name: "Header",
@@ -27,7 +26,10 @@ export default {
     LocaleSwitcher,
   },
   computed: {
-    ...mapGetters(["setUserName"]),
+    setUserName() {
+      let name = localStorage.getItem("userName");
+      return name;
+    },
   },
   methods: {
     homePage() {

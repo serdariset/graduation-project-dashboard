@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 export default {
   name: "SideBar",
   data() {
@@ -41,7 +40,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["setUserName"]),
+    setUserName() {
+      let name = localStorage.getItem("userName");
+      return name;
+    },
   },
   methods: {
     logOut() {
@@ -54,7 +56,6 @@ export default {
     goFactoryList() {
       this.menu = 0;
       this.$router.push({ path: "factory-info" }, () => {});
-    
     },
   },
 };

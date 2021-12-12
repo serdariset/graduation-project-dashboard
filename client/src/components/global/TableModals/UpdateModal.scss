@@ -1,0 +1,152 @@
+@import "@/assets/scss/colors.scss";
+@import "@/assets/scss/mixins.scss";
+@import "@/assets/scss/responsive.scss";
+#update-modal-container {
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: flex;
+  padding-top: 4rem;
+  justify-content: center;
+  background-color: rgba($color: #000000, $alpha: 0.2);
+  position: absolute;
+  .update-modal {
+    width: 500px;
+    height: 600px;
+    background-color: $white;
+    box-shadow: 0 3px 10px rgba($color: #757575, $alpha: 0.3);
+
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    color: $secondary;
+    justify-content: space-around;
+    .modal-name {
+      font-size: 25px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .modal-input-container {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      align-items: flex-start;
+      .input-group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+        label {
+          font-size: 14px;
+          margin-bottom: 0.3rem;
+        }
+        input {
+          height: 35px;
+          border-radius: 5px;
+          border: 2px solid $border;
+          outline: none;
+          padding: 0 1rem;
+          &:focus {
+            border-color: $primary;
+          }
+        }
+        .switch {
+          width: 50px;
+          height: 20px;
+          background-color: $bground;
+          border-radius: 12px;
+          position: relative;
+          margin-top: 0.2rem;
+          cursor: pointer;
+
+          &::before {
+            content: "";
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: $secondary;
+            top: -2px;
+            position: absolute;
+          }
+        }
+        .switch.checked {
+          width: 50px;
+          height: 20px;
+          background-color: $bground;
+          border-radius: 12px;
+          position: relative;
+          transition: 0.2s ease;
+          margin-top: 0.2rem;
+          &::before {
+            content: "";
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: $primary;
+            top: -2px;
+            right: 0;
+            position: absolute;
+          }
+        }
+        .date-group {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 40px;
+          label {
+            height: 35px;
+            @include center;
+            margin-bottom: 0;
+
+            border: 2px solid $border;
+            border-radius: 5px;
+            input {
+              width: 50%;
+              padding-right: 0;
+              border: none;
+              height: 30px;
+            }
+            &:not(:last-child) {
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+    .modal-button-group {
+      display: flex;
+      width: 80%;
+      justify-content: center;
+      button {
+        height: 35px;
+        width: 85px;
+        border: none;
+        outline: none;
+        border-radius: 15px;
+        color: $secondary;
+        cursor: pointer;
+        &:first-child {
+          background-color: $bground;
+          margin-right: 1rem;
+          transition: 0.2s ease;
+          &:hover {
+            background-color: $bgroundHover;
+            color: white;
+          }
+        }
+        &:last-child {
+          background-color: $primary;
+          color: $white;
+          transition: 0.2s ease;
+
+          &:hover {
+            background-color: $primaryHover;
+          }
+        }
+      }
+    }
+  }
+}

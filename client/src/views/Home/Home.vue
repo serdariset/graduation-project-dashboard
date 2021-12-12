@@ -19,7 +19,7 @@ export default {
   created() {
     const local = { token: localStorage.getItem("user") };
     const session = { token: sessionStorage.getItem("user") };
-    if (local) {
+    if (local || session) {
       if (local.token !== null) {
         this.getUserInfo(local);
       } else {

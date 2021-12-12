@@ -17,6 +17,7 @@ export default {
         })
         .then((response) => {
           commit("GET_USER_INFO", response.data);
+          localStorage.setItem("userName", response.data.name);
         })
         .catch((error) => {
           console.log(error);

@@ -20,7 +20,6 @@ export default {
     const remember = localStorage.getItem("remember");
     if (remember == null) {
       this.$router.push({ path: "/" }, () => {});
-      
     }
   },
 };
