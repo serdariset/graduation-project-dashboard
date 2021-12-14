@@ -3,13 +3,14 @@
     <div class="delete-modal">
       <i class="fas fa-exclamation-triangle"></i>
       <div class="caution">
-        <span>This action cannot be undone!</span>
-        <span>Do you want to continue?</span>
+        <span>{{ $t("deleteModal.undone") }}</span>
+        <span>{{ $t("deleteModal.continue") }}</span>
       </div>
       <div class="modal-button-group">
-        <button @click="$emit('deleteModalDisplay', false)">Cancel</button>
-        <button @click="deleteItem()">Delete</button>
-      
+        <button @click="$emit('deleteRow')">
+          {{ $t("deleteModal.cancel") }}
+        </button>
+        <button @click="deleteItem()">{{ $t("deleteModal.delete") }}</button>
       </div>
     </div>
   </div>
@@ -27,12 +28,11 @@ export default {
 
     deleteItem() {
       const data = {
-        factory_id: this.list.itemIDForDelete,
+        factory_id: this.list.itemNameForDelete,
       };
-      this.deleteFactory(data)
-      .then(() => {
-        this.$emit("deleteModalDisplay", false);
-        location.reload()
+      this.deleteFactory(data).then(() => {
+        this.$emit("deleteRow");
+        location.reload();
       });
     },
   },

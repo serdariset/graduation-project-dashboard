@@ -53,13 +53,42 @@
   "list":{
     "name":"Fabrika Listesi",
     "column":{
-      "factoryName":"Fabrika Adı",
-      "memberShipDate":"Üyelik Tarihi",
-      "memberShipEndingDate":"Üyelik Bitiş Tarihi",
-      "employessNumber":"Çalışan Sayısı",
-      "specialMemberShip":"Özel Üye",
-      "actions":"Eylemler"
+      "factory_name":"Fabrika Adı",
+      "membership_date":"Üyelik Tarihi",
+      "membership_ending_date":"Üyelik Bitiş Tarihi",
+      "employees_number":"Çalışan Sayısı",
+      "special_membership":"Özel Üye"
     }
+  },
+  "deleteModal":{
+    "undone":"Bu işlem geri alınamaz!",
+    "continue":"Devam etmek istiyor musunuz?",
+    "delete":"Sil",
+    "cancel":"İptal"
+  },
+  "createModal":{
+    "header":"Yeni bir sütun oluştur",
+    "columnName":"Sütun Adı",
+    "enter":"Sütun Adını Giriniz",
+    "select":"Bir Veri Tipi Seçiniz",
+    "text":"Metin",
+    "number":"Sayı",
+    "date":"Tarih",
+    "boolean":"İkili Değer",
+    "error":"Lütfen boşlukarı doldurunuz!",
+    "create":"Oluştur",
+    "cancel":"İptal"
+  },
+  "deleteColumnModal":{
+    "header":"Silmek istediğiniz sütunu seçiniz",
+    "delete":"Sil",
+    "cancel":"İptal"
+
+  },
+  "createNewRow":{
+    "header":"Yeni bir satır oluştur",
+    "create":"Oluştur",
+    "cancel":"İptal"
   }
 
 }

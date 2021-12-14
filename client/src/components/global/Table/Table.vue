@@ -1,63 +1,67 @@
 <template>
   <div id="table-container">
     <div class="table-content">
-      <div class="table-name table-item">{{ tableInfo.name }}</div>
+      <div class="table-name table-item">
+        {{ tableInfo.name }}
+      </div>
+
       <div class="table-columns table-item" id="tableColumn">
-        <div class="column"></div>
+        <div class="column square"></div>
+
         <div
           class="column"
-          :style="{ width: columnQuantity }"
-          v-for="item in tableInfo.column"
-          :key="item"
+          :style="{ width: `calc((100% - 170px) / ${list.columns.length - 1}` }"
+          v-for="(item, index) in list.columns"
+          :key="index"
+        >
+          <span @click="order(item)" class="col-names">
+            {{ colnamefilter(item) }}
+          </span>
+          <i
+            :class="orderType ? 'fas fa-sort-up' : 'fas fa-sort-down'"
+            v-if="orderedColName == item"
+          ></i>
+        </div>
+        <div class="column square-db"><i class="fas fa-cog"></i></div>
+        <div class="column square-db">
+          <i class="fas fa-plus-circle" @click="newColumn()"></i>
+          <i class="fas fa-times-circle" @click="deleteColumn()"></i>
+        </div>
+      </div>
+
+      <div
+        class="table-rows table-item"
+        v-for="(items, index) in list.rows"
+        :key="items[0]"
+      >
+        <div class="row square">{{ index + 1 }}</div>
+        <div
+          class="row"
+          :style="{ width: `calc((100% - 170px) / ${list.columns.length - 1}` }"
+          v-for="(item, i) in items"
+          :key="i"
         >
           {{ item }}
         </div>
-        <div class="column"><i class="fas fa-plus-circle"></i></div>
+
+        <div class="row square-db">
+          <i class="far fa-edit" @click="editFactory(items)"></i>
+          <i class="far fa-trash-alt" @click="deleteFactory(items[0])"></i>
+        </div>
+        <div class="row square-db"></div>
       </div>
-      <div
-        class="table-rows table-item"
-        v-for="(item, index) in data"
-        :key="item + 'list'"
-      >
-        <div class="row">{{ index + 1 }}</div>
-        <div class="row" :style="{ width: columnQuantity }">
-          {{ item.factory_name }}
-        </div>
-        <div class="row" :style="{ width: columnQuantity }">
-          {{ item.membership_date.slice(0, 10) }}
-        </div>
-        <div class="row" :style="{ width: columnQuantity }">
-          {{ item.membership_ending_date.slice(0, 10) }}
-        </div>
-        <div class="row" :style="{ width: columnQuantity }">
-          {{ item.employees_number }}
-        </div>
-        <div class="row" :style="{ width: columnQuantity }">
-          <i
-            class="far fa-check-circle"
-            v-if="item.special_membership == true"
-          ></i>
-          <i
-            class="far fa-times-circle"
-            v-else-if="item.special_membership == false"
-          ></i>
-        </div>
-        <div class="row" :style="{ width: columnQuantity }">
-          <i class="far fa-edit" @click="editFactory(item)"></i>
-          <i class="far fa-trash-alt" @click="deleteFactory(item.factory_id)"></i>
-        </div>
-        <div class="row"></div>
+      <div class="add-new-row">
+        <i class="fas fa-plus-circle" @click="addNewRow()"></i>
       </div>
     </div>
-    
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   name: "Table",
-  
+
   props: {
     data: Array,
     tableInfo: Object,
@@ -65,26 +69,63 @@ export default {
   data() {
     return {
       columnQuantity: "",
+      isBool: 0,
+      orderType: false,
+      orderedColName: "",
     };
   },
-  mounted() {
-    this.getColumnNumber();
+  created() {
+    this.colnamefilter();
+  },
+  computed: {
+    ...mapState(["list"]),
   },
   methods: {
-    ...mapActions(["updateFactoryInfo","deleteConfirm"]),
-    getColumnNumber() {
-      const quantity = document.getElementById("tableColumn").childElementCount;
-      const width = `calc((100% - 85px) / ${quantity - 2})`;
-      this.columnQuantity = width;
-    },
+    ...mapActions(["updateFactoryInfo", "deleteConfirm", "getFactoryList"]),
+
     editFactory(val) {
       this.updateFactoryInfo(val);
-      this.$emit("modalDisplay", true);
+      this.$emit("updateRow");
     },
-    deleteFactory(val){
-      this.deleteConfirm(val)
-      this.$emit('deleteModalDisplay',true)
-    }
+    deleteFactory(val) {
+      this.deleteConfirm(val);
+      this.$emit("deleteRow");
+      console.log(val);
+    },
+    newColumn() {
+      if (this.list.columns.length <= 10) {
+        this.$emit("createColumn");
+      } else {
+        alert("En fazle 10 kolon olabilir");
+      }
+    },
+    deleteColumn() {
+      this.$emit("deleteColumn");
+    },
+    colnamefilter(val) {
+      let locale = this.$i18n.locale;
+      let list = this.$i18n.messages[locale].list.column;
+
+      if (list[val] == undefined) {
+        return val;
+      } else {
+        return list[val];
+      }
+    },
+    order(val) {
+      this.orderType = !this.orderType;
+      this.orderedColName = val;
+
+      const data = {
+        name: val,
+        type: this.orderType,
+      };
+
+      this.getFactoryList(data);
+    },
+    addNewRow() {
+      this.$emit("createRow");
+    },
   },
 };
 </script>

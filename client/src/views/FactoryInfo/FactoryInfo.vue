@@ -1,12 +1,13 @@
 <template>
   <div>
     <Info />
+    {{ list.orderTypeValues }}
   </div>
 </template>
 
 <script>
 import Info from "@/components/Info/Info.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   name: "FactoryInfo",
   components: {
@@ -14,9 +15,13 @@ export default {
   },
   created() {
     this.getFactoryList();
+    this.getColumnFactoryList();
+  },
+  computed: {
+    ...mapState(["list"]),
   },
   methods: {
-    ...mapActions(["getFactoryList"]),
+    ...mapActions(["getFactoryList", "getColumnFactoryList"]),
   },
 };
 </script>

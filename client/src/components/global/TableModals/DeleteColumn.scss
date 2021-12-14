@@ -1,0 +1,89 @@
+@import "@/assets/scss/colors.scss";
+@import "@/assets/scss/mixins.scss";
+@import "@/assets/scss/responsive.scss";
+
+#delete-column-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding-top: 4rem;
+  justify-content: center;
+  position: absolute;
+  padding-top: 3rem;
+  .column-modal {
+    width: 400px;
+    height: auto;
+    background-color: $white;
+    box-shadow: 0 3px 10px rgba($color: #757575, $alpha: 0.5);
+    padding:2rem 1rem ;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .modal-name{
+      font-size: 20px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: $secondary;
+      margin-bottom: 3rem;
+    }
+    .column-input-container{
+        width: 80%;
+        margin-bottom: 3rem;
+        .input-group{
+            display: flex;
+            flex-direction: column;
+            
+            select{
+                height: 35px;
+                outline: none;
+                border: 2px solid $border;
+                border-radius: 5px;
+                padding-left:1rem ;
+                option{
+                    text-transform: capitalize;
+                    &:nth-child(1){
+                        display: none;
+                    }
+                }
+            }
+            
+        }
+        
+    }
+    .modal-button-group {
+        display: flex;
+        width: 80%;
+        justify-content: center;
+        button {
+          height: 35px;
+          width: 85px;
+          border: none;
+          outline: none;
+          border-radius: 15px;
+          color: $secondary;
+          cursor: pointer;
+          &:first-child {
+            background-color: $bground;
+            margin-right: 1rem;
+            transition: 0.2s ease;
+            &:hover {
+              background-color: $bgroundHover;
+              color: white;
+            }
+          }
+          &:last-child {
+            background-color: $danger;
+            color: $white;
+            transition: 0.2s ease;
+  
+            &:hover {
+              background-color: $dangerHover;
+            }
+          }
+        }
+      }
+    
+  }
+}

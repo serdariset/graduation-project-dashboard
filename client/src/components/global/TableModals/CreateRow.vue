@@ -1,24 +1,22 @@
 <template>
   <div id="update-modal-container">
     <div class="update-modal">
-      <div class="modal-name">Update Factory Info</div>
+      <div class="modal-name">{{ $t("createNewRow.header") }}</div>
       <div class="modal-input-container">
         <div
           class="input-group"
-          v-for="(item, index) in list.factoryInfo"
+          v-for="(item, index) in list.columns"
           :key="index"
         >
-          <label>{{
-            $t(`list.column.${list.columns[index]}`).includes("list.column")
-              ? list.columns[index]
-              : $t(`list.column.${list.columns[index]}`)
-          }}</label>
-          <input type="text" v-model="rows[index]" :placeholder="item" />
+          <label>{{ colnamefilter(item) }}</label>
+          <input type="text" v-model="rows[index]" />
         </div>
       </div>
       <div class="modal-button-group">
-        <button @click="$emit('updateRow')">Cancel</button>
-        <button @click="update()">Save</button>
+        <button @click="$emit('createRow')">
+          {{ $t("createNewRow.cancel") }}
+        </button>
+        <button @click="update()">{{ $t("createNewRow.create") }}</button>
       </div>
     </div>
   </div>
@@ -49,9 +47,19 @@ export default {
     ...mapState(["list"]),
   },
   methods: {
-    ...mapActions(["updateFactory"]),
+    ...mapActions(["updateFactory", "createRow"]),
     swicth() {
       this.specialMember = !this.specialMember;
+    },
+    colnamefilter(val) {
+      let locale = this.$i18n.locale;
+      let list = this.$i18n.messages[locale].list.column;
+
+      if (list[val] == undefined) {
+        return val;
+      } else {
+        return list[val];
+      }
     },
     update() {
       let keys = [];
@@ -71,8 +79,8 @@ export default {
         keys: keys,
       };
 
-      this.updateFactory(data).then(() => {
-        this.$emit("updateRow");
+      this.createRow(data).then(() => {
+        this.$emit("createRow");
         location.reload();
       });
     },
@@ -81,5 +89,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./UpdateModal.scss";
+@import "./CreateRow.scss";
 </style>

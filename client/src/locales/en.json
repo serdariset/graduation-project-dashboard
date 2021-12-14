@@ -53,12 +53,41 @@
   "list":{
     "name":"Factory List",
     "column":{
-      "factoryName":"Factory Name",
-      "memberShipDate":"Membership Date",
-      "memberShipEndingDate":"Membership Ending Date",
-      "employessNumber":"Number of Employees",
-      "specialMemberShip":"Special Membership",
-      "actions":"Actions"
+      "factory_name":"Factory Name",
+      "membership_date":"Membership Date",
+      "membership_ending_date":"Membership Ending Date",
+      "employees_number":"Number of Employees",
+      "special_membership":"Special Membership"
     }
+  },
+  "deleteModal":{
+    "undone":"This action cannot be undone!",
+    "continue":"Do you want to continue?",
+    "delete":"Delete",
+    "cancel":"Cancel"
+  },
+  "createModal":{
+    "header":"Create a new column",
+    "columnName":"Column name",
+    "enter":"Enter Column Name",
+    "select":"Choose a Data Type",
+    "text":"Text",
+    "number":"Number",
+    "date":"Date",
+    "boolean":"Boolean",
+    "error":"Please fill in the blanks!",
+    "create":"Create",
+    "cancel":"Cancel"
+  },
+  "deleteColumnModal":{
+    "header":"Select the column to be deleted",
+    "delete":"Delete",
+    "cancel":"Cancel"
+
+  },
+  "createNewRow":{
+    "header":"Create a new row",
+    "create":"Create",
+    "cancel":"Cansel"
   }
 }
