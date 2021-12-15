@@ -22,12 +22,6 @@ app.use('/user',user)
 app.use('/info',info)
 app.use('/list',list)
 
-if(process.env.NODE_ENV === "production"){
-    app.use(express.static(__dirname+"/public/"))
-    app.get("*",(req,res)=>{
-        res.sendFile(__dirname+"/public/index.html")
-    })
-}
 
 //MongoDB Connection
 mongoose.connect(process.env.MONGODB_CLUSTER,{
