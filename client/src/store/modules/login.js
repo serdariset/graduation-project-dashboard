@@ -12,7 +12,6 @@ export default {
   },
   actions: {
     getUserToken({ state, commit }, payload) {
-      console.log(payload);
       return axios
         .post(`${state.apiURL}/user/login`, payload.data)
         .then((response) => {

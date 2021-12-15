@@ -73,13 +73,13 @@ export default {
     exampleFilter(val) {
       let locale = this.$i18n.locale;
       let list = this.$i18n.messages[locale].list.updateColumn.column;
-      console.log(val)
 
       if (list[val] == undefined) {
         return val;
       } else {
         return list[val];
       }
+      
     },
     update() {
       let keys = [];
@@ -90,7 +90,7 @@ export default {
       for (let j = 0; j < this.list.columns.length; j++) {
         if (this.rows[j] == undefined) {
           keys.push({ values: this.list.factoryInfo[j] });
-          console.log(this.rows[j]);
+         
         } else {
           keys.push({ values: this.rows[j] });
         }
