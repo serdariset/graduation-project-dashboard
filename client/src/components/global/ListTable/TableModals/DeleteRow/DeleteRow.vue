@@ -32,7 +32,7 @@ export default {
       };
       this.deleteFactoryFromList(data).then(() => {
         this.$emit("deleteRow");
-        /* location.reload(); */
+       
       });
     },
   },

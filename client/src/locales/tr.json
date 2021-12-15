@@ -66,8 +66,8 @@
       "cancel": "Cancel",
       "column": {
         "factory_name": "--> Omega",
-        "membership_date": "--> 30.12.2021",
-        "membership_ending_date": "--> 30.12.2022",
+        "membership_date": "--> YYYY-MM-DD",
+        "membership_ending_date": "--> YYYY-MM-DD",
         "employees_number": "--> 105",
         "special_membership": "--> true"
       }
