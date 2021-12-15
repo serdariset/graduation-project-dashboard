@@ -41,7 +41,7 @@
           v-for="(item, i) in items"
           :key="i"
         >
-          {{ item }}
+          {{ dateFilter(item) }}
         </div>
 
         <div class="row square-db">
@@ -76,6 +76,7 @@ export default {
   },
   created() {
     this.colnamefilter();
+    this.dateFilter();
   },
   computed: {
     ...mapState(["info"]),
@@ -112,6 +113,20 @@ export default {
         return info[val];
       }
     },
+    dateFilter(val) {
+      let newVal;
+      if (typeof val !== "string") {
+        newVal = val;
+      } else {
+        if (val.includes("T21") == true) {
+          newVal = val.slice(0, 10);
+        } else {
+          newVal = val;
+        }
+      }
+
+      return newVal;
+    },
     order(val) {
       this.orderType = !this.orderType;
       this.orderedColName = val;
@@ -126,7 +141,6 @@ export default {
     addNewRow() {
       this.$emit("createRow");
     },
-    
   },
 };
 </script>

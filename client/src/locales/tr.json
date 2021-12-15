@@ -58,6 +58,19 @@
       "membership_ending_date":"Üyelik Bitiş Tarihi",
       "employees_number":"Çalışan Sayısı",
       "special_membership":"Özel Üye"
+    },
+    "updateColumn": {
+      "header": "Fabrika Bilgilerini Güncelle",
+      "caution": "Lütfen örnekte gösterildiği gibi giriniz",
+      "save": "Save",
+      "cancel": "Cancel",
+      "column": {
+        "factory_name": "--> Omega",
+        "membership_date": "--> 30.12.2021",
+        "membership_ending_date": "--> 30.12.2022",
+        "employees_number": "--> 105",
+        "special_membership": "--> true"
+      }
     }
   },
   "deleteModal":{

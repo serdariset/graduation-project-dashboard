@@ -23,11 +23,7 @@ router.post(
     }
     try {
       client.query(sql, (err, result) => {
-        res.status(200).json(result.rows.map((item)=>(
-          Object.values(item).map((i)=>(
-            i.toLocaleString()
-          ))
-        )));
+        res.status(200).json(result.rows);
       });
     } catch (e) {
       console.log(e);

@@ -21,10 +21,21 @@
     color: $secondary;
     justify-content: flex-start;
     .modal-name {
-      font-size: 25px;
-      text-transform: uppercase;
-      font-weight: 700;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
       margin-bottom: 2rem;
+      .header{
+        font-size: 25px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      .caution{
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: capitalize;
+      }
     }
     .modal-input-container {
       display: flex;

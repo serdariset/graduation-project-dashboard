@@ -23,13 +23,10 @@ router.post(
     }
     try {
       client.query(sql, (err, result) => {
-        res.status(200).json(result.rows.map((item)=>(
-          Object.values(item).map((i)=>(
-            i.toLocaleString("tr-TR",{dateStyle:"short"})
-            
-            ))
-          )))
-    
+          
+        res
+          .status(200)
+          .json(result.rows);
       });
     } catch (e) {
       console.log(e);
@@ -61,7 +58,6 @@ router.delete(
 
     const sql = "DELETE FROM info WHERE factory_id = $1";
     try {
-
       client.query(sql, [factory_id], (err, success) => {
         if (!err) {
           res.status(200).json({

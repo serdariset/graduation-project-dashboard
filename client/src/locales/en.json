@@ -58,6 +58,18 @@
       "membership_ending_date": "Membership Ending Date",
       "employees_number": "Number of Employees",
       "special_membership": "Special Membership"
+    },
+    "updateColumn": {
+      "caution": "Please enter as shown in the example",
+      "save": "Save",
+      "cancel": "Cancel",
+      "column": {
+        "factory_name": "--> Omega",
+        "membership_date": "--> 30.12.2021",
+        "membership_ending_date": "--> 30.12.2022",
+        "employees_number": "--> 105",
+        "special_membership": "--> true"
+      }
     }
   },
   "deleteModal": {

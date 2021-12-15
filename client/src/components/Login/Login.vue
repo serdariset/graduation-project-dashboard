@@ -77,6 +77,12 @@ export default {
   computed: {
     ...mapState(["login"]),
   },
+  mounted() {
+    const remember = localStorage.getItem("remember");
+    if (remember) {
+      this.$router.push({ path: "/home" }, () => {});
+    }
+  },
 
   methods: {
     ...mapActions(["getUserToken"]),

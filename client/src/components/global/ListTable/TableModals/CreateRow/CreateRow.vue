@@ -1,14 +1,19 @@
 <template>
   <div id="update-modal-container">
     <div class="update-modal">
-      <div class="modal-name">{{ $t("createNewRow.header") }}</div>
+      <div class="modal-name">
+        <span class="header"> {{ $t("createNewRow.header") }}</span>
+        <span class="caution">{{$t('list.updateColumn.caution')}}</span>
+      </div>
       <div class="modal-input-container">
         <div
           class="input-group"
           v-for="(item, index) in list.columns"
           :key="index"
         >
-          <label>{{ colnamefilter(item) }}</label>
+          <label>{{ colnamefilter(item) }}
+            {{exampleFilter(item)}}
+          </label>
           <input type="text" v-model="rows[index]" />
         </div>
       </div>
@@ -43,6 +48,10 @@ export default {
       },
     };
   },
+  created(){
+    this.exampleFilter()
+    this.colnamefilter()
+  },
   computed: {
     ...mapState(["list"]),
   },
@@ -54,6 +63,17 @@ export default {
     colnamefilter(val) {
       let locale = this.$i18n.locale;
       let list = this.$i18n.messages[locale].list.column;
+
+      if (list[val] == undefined) {
+        return val;
+      } else {
+        return list[val];
+      }
+    },
+    exampleFilter(val) {
+      let locale = this.$i18n.locale;
+      let list = this.$i18n.messages[locale].list.updateColumn.column;
+      console.log(val)
 
       if (list[val] == undefined) {
         return val;
