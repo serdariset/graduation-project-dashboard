@@ -13,7 +13,7 @@ export default {
   actions: {
     getUserToken({ state, commit }, payload) {
       return axios
-        .post(`${state.apiURL}/user/login`, payload.data)
+        .post(`process.env.VUE_APP_API_URI/user/login`, payload.data)
         .then((response) => {
           commit("GET_USER_TOKEN", response.data);
           if (response.data.status == true) {
