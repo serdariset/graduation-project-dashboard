@@ -47,15 +47,16 @@ export default {
       anyError: false,
     };
   },
+
   methods: {
-    ...mapActions(["createColumn"]),
+    ...mapActions(["createColumnInList"]),
     createNewColumn() {
       const data = {
         columnName: this.columnName,
         dataType: this.dataType,
       };
       if (this.dataType && this.columnName) {
-        this.createColumn(data).then(() => {
+        this.createColumnInList(data).then(() => {
           location.reload();
           this.$emit("createColumn");
         });
@@ -69,5 +70,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./ColumnModal.scss";
+@import "./CreateColumn.scss";
 </style>

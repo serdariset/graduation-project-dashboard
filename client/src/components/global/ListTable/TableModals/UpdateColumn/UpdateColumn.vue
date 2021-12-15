@@ -1,24 +1,30 @@
 <template>
   <div id="update-modal-container">
     <div class="update-modal">
-      <div class="modal-name">Update Factory Info</div>
+      <div class="modal-name">
+        <span class="header"> {{ $t("list.updateColumn.header") }}</span>
+        <span class="caution">{{$t('list.updateColumn.caution')}}</span>
+      </div>
+      
+      
       <div class="modal-input-container">
         <div
           class="input-group"
-          v-for="(item, index) in list.factoryInfo"
+          v-for="(items, index) in list.factoryInfo"
           :key="index"
         >
-          <label>{{
-            $t(`list.column.${list.columns[index]}`).includes("list.column")
-              ? list.columns[index]
-              : $t(`list.column.${list.columns[index]}`)
-          }}</label>
-          <input type="text" v-model="rows[index]" :placeholder="item" />
+          <label>
+            {{ colnamefilter(list.columns[index]) }}
+            {{ exampleFilter(list.columns[index]) }}
+          </label>
+          <input type="text" v-model="rows[index]" :placeholder="items" />
         </div>
       </div>
       <div class="modal-button-group">
-        <button @click="$emit('updateRow')">Cancel</button>
-        <button @click="update()">Save</button>
+        <button @click="$emit('updateRow')">
+          {{ $t("list.updateColumn.cancel") }}
+        </button>
+        <button @click="update()">{{ $t("list.updateColumn.save") }}</button>
       </div>
     </div>
   </div>
@@ -45,13 +51,38 @@ export default {
       },
     };
   },
+  created() {
+    this.colnamefilter();
+    this.exampleFilter()
+  },
   computed: {
     ...mapState(["list"]),
   },
   methods: {
-    ...mapActions(["updateFactory"]),
+    ...mapActions(["updateRowInList"]),
     swicth() {
       this.specialMember = !this.specialMember;
+    },
+    colnamefilter(val) {
+      let locale = this.$i18n.locale;
+      let list = this.$i18n.messages[locale].list.column;
+
+      if (list[val] == undefined) {
+        return val;
+      } else {
+        return list[val];
+      }
+    },
+    exampleFilter(val) {
+      let locale = this.$i18n.locale;
+      let list = this.$i18n.messages[locale].list.updateColumn.column;
+      
+
+      if (list[val] == undefined) {
+        return val;
+      } else {
+        return list[val];
+      }
     },
     update() {
       let keys = [];
@@ -71,7 +102,7 @@ export default {
         keys: keys,
       };
 
-      this.updateFactory(data).then(() => {
+      this.updateRowInList(data).then(() => {
         this.$emit("updateRow");
         location.reload();
       });
@@ -81,5 +112,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./UpdateModal.scss";
+@import "./UpdateColumn.scss";
 </style>

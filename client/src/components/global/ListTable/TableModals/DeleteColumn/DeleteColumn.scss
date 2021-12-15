@@ -1,58 +1,56 @@
 @import "@/assets/scss/colors.scss";
 @import "@/assets/scss/mixins.scss";
 @import "@/assets/scss/responsive.scss";
-#column-modal-container {
+
+#delete-column-container {
   width: 100%;
-  height: calc(100vh - 80px);
+  height: auto;
   display: flex;
   padding-top: 4rem;
   justify-content: center;
-  background-color: rgba($color: #000000, $alpha: 0.2);
   position: absolute;
+  padding-top: 3rem;
   .column-modal {
     width: 400px;
-    height: 300px;
+    height: auto;
     background-color: $white;
-    box-shadow: 0 3px 10px rgba($color: #757575, $alpha: 0.3);
+    box-shadow: 0 3px 10px rgba($color: #757575, $alpha: 0.5);
+    padding:2rem 1rem ;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     .modal-name{
-        font-size: 20px;
+      font-size: 20px;
       text-transform: uppercase;
       font-weight: 700;
       color: $secondary;
+      margin-bottom: 3rem;
     }
     .column-input-container{
         width: 80%;
+        margin-bottom: 3rem;
         .input-group{
             display: flex;
             flex-direction: column;
-            label{
-                font-size: 14px;
-                color: $secondary;
-                margin-bottom: 0.3rem;
-            }
-            input,select{
+            
+            select{
                 height: 35px;
                 outline: none;
                 border: 2px solid $border;
                 border-radius: 5px;
                 padding-left:1rem ;
-                
-            }
-            input{
-                margin-bottom: 1rem;
+                option{
+                    text-transform: capitalize;
+                    &:nth-child(1){
+                        display: none;
+                    }
+                }
             }
             
         }
         
-    }
-    .create-error{
-        color: $danger;
-        font-size: 14px;
     }
     .modal-button-group {
         display: flex;
@@ -76,15 +74,16 @@
             }
           }
           &:last-child {
-            background-color: $primary;
+            background-color: $danger;
             color: $white;
             transition: 0.2s ease;
   
             &:hover {
-              background-color: $primaryHover;
+              background-color: $dangerHover;
             }
           }
         }
       }
+    
   }
 }

@@ -41,53 +41,77 @@
     },
     "errorAll": "Please fill in the required fields!"
   },
-  "modal":{
-    "redirecting":"Redirecting...",
-    "exist":"This e-mail is already exist",
-    "warning":"Error",
-    "success":"Success",
-    "user":"No registered user found for this e-mail address.",
-    "password":"You entered the wrong password.",
-    "welcome":"Hi {user}, Welcome!"
+  "modal": {
+    "redirecting": "Redirecting...",
+    "exist": "This e-mail is already exist",
+    "warning": "Error",
+    "success": "Success",
+    "user": "No registered user found for this e-mail address.",
+    "password": "You entered the wrong password.",
+    "welcome": "Hi {user}, Welcome!"
   },
-  "list":{
-    "name":"Factory List",
-    "column":{
-      "factory_name":"Factory Name",
-      "membership_date":"Membership Date",
-      "membership_ending_date":"Membership Ending Date",
-      "employees_number":"Number of Employees",
-      "special_membership":"Special Membership"
+  "info": {
+    "name": "Factory List",
+    "column": {
+      "factory_name": "Factory Name",
+      "membership_date": "Membership Date",
+      "membership_ending_date": "Membership Ending Date",
+      "employees_number": "Number of Employees",
+      "special_membership": "Special Membership"
     }
   },
-  "deleteModal":{
-    "undone":"This action cannot be undone!",
-    "continue":"Do you want to continue?",
-    "delete":"Delete",
-    "cancel":"Cancel"
+  "deleteModal": {
+    "undone": "This action cannot be undone!",
+    "continue": "Do you want to continue?",
+    "delete": "Delete",
+    "cancel": "Cancel"
   },
-  "createModal":{
-    "header":"Create a new column",
-    "columnName":"Column name",
-    "enter":"Enter Column Name",
-    "select":"Choose a Data Type",
-    "text":"Text",
-    "number":"Number",
-    "date":"Date",
-    "boolean":"Boolean",
-    "error":"Please fill in the blanks!",
-    "create":"Create",
-    "cancel":"Cancel"
+  "createModal": {
+    "header": "Create a new column",
+    "columnName": "Column name",
+    "enter": "Enter Column Name",
+    "select": "Choose a Data Type",
+    "text": "Text",
+    "number": "Number",
+    "date": "Date",
+    "boolean": "Boolean",
+    "error": "Please fill in the blanks!",
+    "create": "Create",
+    "cancel": "Cancel"
   },
-  "deleteColumnModal":{
-    "header":"Select the column to be deleted",
-    "delete":"Delete",
-    "cancel":"Cancel"
-
+  "deleteColumnModal": {
+    "header": "Select the column to be deleted",
+    "delete": "Delete",
+    "cancel": "Cancel"
   },
-  "createNewRow":{
-    "header":"Create a new row",
-    "create":"Create",
-    "cancel":"Cansel"
+  "createNewRow": {
+    "header": "Create a new row",
+    "create": "Create",
+    "cancel": "Cancel"
+  },
+  "list": {
+    "name": "Factory Usage Info",
+    "column": {
+      "factory_name": "Factory Name",
+      "used_unit": "Used Unit",
+      "date_range": "Date Range",
+      "usage_amount_kw": "Usage Amount (kWh)",
+      "usage_price": "Usage Price",
+      "discounted_price": "Discounted Price"
+    },
+    "updateColumn": {
+      "header": "Update Factory Info",
+      "caution": "Please enter as shown in the example",
+      "save": "Save",
+      "cancel": "Cancel",
+      "column": {
+        "factory_name": "--> Omega",
+        "used_unit": "--> kWh",
+        "date_range": "--> [2021-12-14,2022-06-13)",
+        "usage_amount_kw": "--> 45000",
+        "usage_price": "--> 1200",
+        "discounted_price": "--> true"
+      }
+    }
   }
 }

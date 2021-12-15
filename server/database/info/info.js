@@ -3,7 +3,7 @@ const router = express.Router();
 const client = require("../database");
 
 router.post(
-  "/factory-list",
+  "/factory-info",
 
   async (req, res) => {
     const { name, type } = req.body;
@@ -11,7 +11,7 @@ router.post(
     let sql;
 
     if (name || type == undefined) {
-      sql = "SELECT * FROM list";
+      sql = "SELECT * FROM info";
     }
     if (name !== undefined) {
       if (type == false) {
@@ -19,28 +19,29 @@ router.post(
       } else if (type == true) {
         orderType = "ASC";
       }
-      sql = `SELECT * FROM list ORDER BY ${name} ${orderType}`;
+      sql = `SELECT * FROM info ORDER BY ${name} ${orderType}`;
     }
     try {
       client.query(sql, (err, result) => {
         res.status(200).json(result.rows.map((item)=>(
           Object.values(item).map((i)=>(
-            i.toLocaleString()
-          ))
-        )));
+            i.toLocaleString("tr-TR",{dateStyle:"short"})
+            
+            ))
+          )))
+    
       });
     } catch (e) {
       console.log(e);
     }
   }
 );
-
 router.get(
   "/column",
 
   async (req, res) => {
     try {
-      client.query("SELECT * FROM list WHERE false", (err, result) => {
+      client.query("SELECT * FROM info WHERE false", (err, result) => {
         res.status(200).json({
           name: result.fields.map((item) => item.name),
           type: result.fields.map((item) => item.format),
@@ -51,14 +52,16 @@ router.get(
     }
   }
 );
+
 router.delete(
   "/delete",
 
   async (req, res) => {
     const { factory_id } = req.body;
 
-    const sql = "DELETE FROM list WHERE factory_id = $1";
+    const sql = "DELETE FROM info WHERE factory_id = $1";
     try {
+
       client.query(sql, [factory_id], (err, success) => {
         if (!err) {
           res.status(200).json({
@@ -69,33 +72,16 @@ router.delete(
       });
     } catch (e) {
       res.status(400).send(e);
-      console.log(e)
     }
   }
 );
-router.post(
-  "/delete-column",
 
-  async (req, res) => {
-    const { name } = req.body;
-    const sql = `ALTER TABLE list DROP COLUMN ${name}`;
-    try {
-      client.query(sql, (err, result) => {
-        if (!err) {
-          res.status(201).send(result);
-        }
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  }
-);
 router.post(
   "/create-column",
 
   async (req, res) => {
     const { columnName, dataType } = req.body;
-    const sql = `ALTER TABLE list ADD COLUMN ${columnName} ${dataType}`;
+    const sql = `ALTER TABLE info ADD COLUMN ${columnName} ${dataType}`;
     try {
       client.query(sql, (err, result) => {
         if (!err) {
@@ -107,7 +93,6 @@ router.post(
     }
   }
 );
-
 router.post(
   "/create-row",
 
@@ -142,8 +127,8 @@ router.post(
         row += cols[i][0] + ", ";
       }
     }
-   
-    const sql = `INSERT INTO list (${row}) VALUES (${query})`;
+
+    const sql = `INSERT INTO info (${row}) VALUES (${query})`;
 
     try {
       client.query(sql, values, (err, result) => {
@@ -159,6 +144,25 @@ router.post(
     }
   }
 );
+
+router.post(
+  "/delete-column",
+
+  async (req, res) => {
+    const { name } = req.body;
+    const sql = `ALTER TABLE info DROP COLUMN ${name}`;
+    try {
+      client.query(sql, (err, result) => {
+        if (!err) {
+          res.status(201).send(result);
+        }
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
 router.post(
   "/update",
 
@@ -187,7 +191,7 @@ router.post(
       values.push(rows[i][0]);
     }
 
-    const sql = `UPDATE list SET ${query} WHERE factory_id = $1`;
+    const sql = `UPDATE info SET ${query} WHERE factory_id = $1`;
 
     try {
       client.query(sql, values, (err, result) => {

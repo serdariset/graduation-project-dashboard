@@ -1,5 +1,5 @@
 <template>
-  <div id="factory-info-container">
+  <div id="factory-list-container">
     <SideBar />
     <Table
       @updateRow="updateRow = true"
@@ -18,15 +18,15 @@
 
 <script>
 import SideBar from "@/components/global/SideBar/SideBar.vue";
-import Table from "@/components/global/InfoTable/InfoTable.vue";
-import UpdateColumn from "@/components/global/InfoTable/TableModals/UpdateColumn/UpdateColumn.vue";
-import DeleteRow from "@/components/global/InfoTable/TableModals/DeleteRow/DeleteRow.vue";
-import CreateColumn from "@/components/global/InfoTable/TableModals/CreateColumn/CreateColumn.vue";
-import DeleteColumn from "@/components/global/InfoTable/TableModals/DeleteColumn/DeleteColumn.vue";
-import CreateRow from "@/components/global/InfoTable/TableModals/CreateRow/CreateRow.vue";
-
+import Table from "@/components/global/ListTable/ListTable.vue";
+import UpdateColumn from "@/components/global/ListTable/TableModals/UpdateColumn/UpdateColumn.vue";
+import DeleteRow from "@/components/global/ListTable/TableModals/DeleteRow/DeleteRow.vue";
+import CreateColumn from "@/components/global/ListTable/TableModals/CreateColumn/CreateColumn.vue";
+import DeleteColumn from "@/components/global/ListTable/TableModals/DeleteColumn/DeleteColumn.vue";
+import CreateRow from "@/components/global/ListTable/TableModals/CreateRow/CreateRow.vue";
 export default {
-  name: "FactoryInfo",
+  name: "List",
+
   data() {
     return {
       updateRow: false,
@@ -49,5 +49,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./Info.scss";
+@import "./List.scss";
 </style>

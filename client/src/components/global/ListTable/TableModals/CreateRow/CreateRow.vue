@@ -47,7 +47,7 @@ export default {
     ...mapState(["list"]),
   },
   methods: {
-    ...mapActions(["updateFactory", "createRow"]),
+    ...mapActions(["createRowInList"]),
     swicth() {
       this.specialMember = !this.specialMember;
     },
@@ -79,7 +79,7 @@ export default {
         keys: keys,
       };
 
-      this.createRow(data).then(() => {
+      this.createRowInList(data).then(() => {
         this.$emit("createRow");
         location.reload();
       });

@@ -2,7 +2,7 @@
   <div id="table-container">
     <div class="table-content">
       <div class="table-name table-item">
-        {{ tableInfo.name }}
+        {{ $t("list.name") }}
       </div>
 
       <div class="table-columns table-item" id="tableColumn">
@@ -41,7 +41,7 @@
           v-for="(item, i) in items"
           :key="i"
         >
-          {{ item }}
+          {{ item}}
         </div>
 
         <div class="row square-db">
@@ -62,10 +62,6 @@ import { mapActions, mapState } from "vuex";
 export default {
   name: "Table",
 
-  props: {
-    data: Array,
-    tableInfo: Object,
-  },
   data() {
     return {
       columnQuantity: "",
@@ -81,16 +77,15 @@ export default {
     ...mapState(["list"]),
   },
   methods: {
-    ...mapActions(["updateFactoryInfo", "deleteConfirm", "getFactoryList"]),
+    ...mapActions(["updateRow", "deleteRowWithID", "getFactoryDetail"]),
 
     editFactory(val) {
-      this.updateFactoryInfo(val);
+      this.updateRow(val);
       this.$emit("updateRow");
     },
     deleteFactory(val) {
-      this.deleteConfirm(val);
+      this.deleteRowWithID(val);
       this.$emit("deleteRow");
-      console.log(val);
     },
     newColumn() {
       if (this.list.columns.length <= 10) {
@@ -120,8 +115,9 @@ export default {
         name: val,
         type: this.orderType,
       };
+      
 
-      this.getFactoryList(data);
+      this.getFactoryDetail(data);
     },
     addNewRow() {
       this.$emit("createRow");
@@ -131,5 +127,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./Table.scss";
+@import "./ListTable.scss";
 </style>

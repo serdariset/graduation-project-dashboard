@@ -50,7 +50,7 @@
     "password":"Yanlış parola girdiniz.",
     "welcome":"Merhaba {user}, Hoş geldin!"
   },
-  "list":{
+  "info":{
     "name":"Fabrika Listesi",
     "column":{
       "factory_name":"Fabrika Adı",
@@ -89,6 +89,31 @@
     "header":"Yeni bir satır oluştur",
     "create":"Oluştur",
     "cancel":"İptal"
+  },
+  "list":{
+    "name":"Fabrika Kullanım Bilgileri",
+    "column":{
+      "factory_name":"Fabrika Adı",
+      "used_unit":"Kullanılan Birim",
+      "date_range":"Tarih Aralığı",
+      "usage_amount_kw":"Kullanım Miktarı (kWh)",
+      "usage_price":"Kullanım Bedeli",
+      "discounted_price":"İndirimli Fiyat"
+    },
+    "updateColumn": {
+      "header": "Fabrika Bilgilerini Güncelle",
+      "caution": "Lütfen örnekte gösterildiği gibi giriniz",
+      "save": "Kaydet",
+      "cancel": "İptal",
+      "column": {
+        "factory_name": "--> Omega",
+        "used_unit": "--> kWh",
+        "date_range": "--> [2021-12-14,2022-06-13)",
+        "usage_amount_kw": "--> 45000",
+        "usage_price": "--> 1200",
+        "discounted_price": "--> true"
+      }
+    }
   }
 
 }

@@ -57,6 +57,14 @@ export default {
       this.menu = 0;
       this.$router.push({ path: "factory-info" }, () => {});
     },
+    getFactoryInfo() {
+      this.menu = 1;
+      this.$router.push({ path: "factory-list" }, () => {});
+    },
+    userSettings() {
+      this.menu = 2;
+      this.$router.push({ path: "user-settings" }, () => {});
+    },
   },
 };
 </script>

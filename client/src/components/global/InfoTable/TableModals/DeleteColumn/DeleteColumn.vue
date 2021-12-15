@@ -7,7 +7,7 @@
           <select v-model="colName">
             <option
               :value="item"
-              v-for="(item, index) in list.columns"
+              v-for="(item, index) in info.columns"
               :key="index"
             >
               {{ colnamefilter(item) }}
@@ -37,18 +37,18 @@ export default {
     };
   },
   computed: {
-    ...mapState(["list"]),
+    ...mapState(["info"]),
   },
   methods: {
     ...mapActions(["columnDelete"]),
     colnamefilter(val) {
       let locale = this.$i18n.locale;
-      let list = this.$i18n.messages[locale].list.column;
+      let info = this.$i18n.messages[locale].info.column;
 
-      if (list[val] == undefined) {
+      if (info[val] == undefined) {
         return val;
       } else {
-        return list[val];
+        return info[val];
       }
     },
     deleteCol() {

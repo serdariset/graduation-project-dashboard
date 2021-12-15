@@ -21,14 +21,14 @@ import { mapActions, mapState } from "vuex";
 export default {
   name: "DeleteModal",
   computed: {
-    ...mapState(["list"]),
+    ...mapState(["info"]),
   },
   methods: {
     ...mapActions(["deleteFactory"]),
 
     deleteItem() {
       const data = {
-        factory_id: this.list.itemNameForDelete,
+        factory_id: this.info.itemNameForDelete,
       };
       this.deleteFactory(data).then(() => {
         this.$emit("deleteRow");
@@ -40,5 +40,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./DeleteModal.scss";
+@import "./DeleteRow.scss";
 </style>

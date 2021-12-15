@@ -28,6 +28,11 @@ const routes = [
     name: "FactoryInfo",
     component: () => import("@/views/FactoryInfo/FactoryInfo.vue"),
   },
+  {
+    path: "/factory-list",
+    name: "FactoryList",
+    component: () => import("@/views/FactoryList/FactoryList.vue"),
+  },
 ];
 
 const router = new VueRouter({
