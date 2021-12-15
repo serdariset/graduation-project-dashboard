@@ -57,7 +57,7 @@ export default {
       };
       if (this.dataType && this.columnName) {
         this.createColumn(data).then(() => {
-          location.reload();
+          
           this.$emit("createColumn");
         });
         this.anyError = false;

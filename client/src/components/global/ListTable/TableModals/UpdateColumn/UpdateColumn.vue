@@ -104,7 +104,7 @@ export default {
 
       this.updateRowInList(data).then(() => {
         this.$emit("updateRow");
-        location.reload();
+     
       });
     },
   },

@@ -105,7 +105,7 @@ export default {
           if (this.login.userToken.status) {
             setTimeout(() => {
               this.$router.push({ path: "/home" }, () => {
-                location.reload();
+               
               });
               this.resultModal = 0;
             }, 1000);

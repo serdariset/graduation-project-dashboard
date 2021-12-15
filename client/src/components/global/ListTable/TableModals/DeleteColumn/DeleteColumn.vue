@@ -58,7 +58,7 @@ export default {
       if (this.colName) {
         this.deleteColumnInList(data).then(() => {
           this.$emit("deleteColumn");
-          location.reload();
+         
         });
       }
     },

@@ -116,7 +116,7 @@ export default {
 
       this.updateFactory(data).then(() => {
         this.$emit("updateRow");
-        location.reload();
+      
       });
     },
   },

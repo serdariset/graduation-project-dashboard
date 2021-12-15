@@ -50,7 +50,7 @@ export default {
       localStorage.clear();
       sessionStorage.clear();
       this.$router.push({ path: "/" }, () => {
-        location.reload();
+    
       });
     },
     goFactoryList() {

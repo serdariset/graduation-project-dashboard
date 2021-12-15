@@ -100,7 +100,7 @@ export default {
 
       this.createRow(data).then(() => {
         this.$emit("createRow");
-        location.reload();
+     
       });
     },
   },

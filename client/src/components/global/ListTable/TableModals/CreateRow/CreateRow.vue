@@ -101,7 +101,7 @@ export default {
 
       this.createRowInList(data).then(() => {
         this.$emit("createRow");
-        location.reload();
+      
       });
     },
   },
