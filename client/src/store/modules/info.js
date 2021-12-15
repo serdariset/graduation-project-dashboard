@@ -28,15 +28,17 @@ export default {
   },
   actions: {
     getFactoryList({ state, commit }, payload) {
-      console.log(payload);
+      
       axios
         .post(`${state.apiURL}/info/factory-info`, payload)
         .then((res) => {
+          console.log(res.data)
           commit("GET_FACTORY_LIST", res.data);
+          
           commit(
             "FACTORY_LIST_ROWS",
             res.data.map((item) => Object.values(item))
-            
+           
           );
           
         })
