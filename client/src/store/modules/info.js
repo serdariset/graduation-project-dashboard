@@ -31,6 +31,7 @@ export default {
       
       axios
         .post(`${state.apiURL}/info/factory-info`, payload)
+        
         .then((res) => {
           console.log(res.data)
           commit("GET_FACTORY_LIST", res.data);
