@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
   state: {
-    apiURL: process.env.VUE_APP_API_URI,
+    apiURL: "https://dashboard-server-one.vercel.app",
     registerResult: [],
   },
   mutations: {
