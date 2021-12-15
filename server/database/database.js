@@ -1,6 +1,6 @@
 const {Client} = require('pg')
 
-const client = new Client("postgres://zawnrnno:1ejpeRVHmyzfIiAWyY6m29NddV_4EzOT@tai.db.elephantsql.com/zawnrnno")
+const client = new Client(process.env.POSTGRE)
 /* const client = new Client({
     host:"localhost",
     user:"postgres",
