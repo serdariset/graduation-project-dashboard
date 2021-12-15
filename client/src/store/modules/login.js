@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
   state: {
-    apiURL: process.env.VUE_APP_API_URI,
+    apiURL: "https://dashboard-server-one.vercel.app",
     userToken: [],
   },
   mutations: {
@@ -13,7 +13,7 @@ export default {
   actions: {
     getUserToken({ state, commit }, payload) {
       return axios
-        .post(`process.env.VUE_APP_API_URI/user/login`, payload.data)
+        .post(`${state.apiURL}/user/login`, payload.data)
         .then((response) => {
           commit("GET_USER_TOKEN", response.data);
           if (response.data.status == true) {
