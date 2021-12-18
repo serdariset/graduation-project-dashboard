@@ -24,3 +24,8 @@ Husky used for commits.
 8. Cors
 9. JSON Web Token
 
+![1](https://user-images.githubusercontent.com/73692800/146653801-ba5d9f2b-f2f7-4c96-841c-d931ba7c972c.png)
+![2](https://user-images.githubusercontent.com/73692800/146653804-3538f96e-d7e4-4db3-b171-74b8b544ba28.png)
+![3](https://user-images.githubusercontent.com/73692800/146653806-4a5d4aff-3f4b-478f-a983-1201dec2be66.png)
+
+
